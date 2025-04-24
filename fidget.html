@@ -1,1 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Print da Toys</title>
+    <style>
+        /* Navbar styling */
+       .navbar {
+      background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      padding: 12px 0;
+    }
 
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Fix for navbar to make links inline and remove bullet points */
+    .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    .navbar-nav .nav-item {
+      margin-right: 15px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.9) !important;
+      transition: all 0.2s ease;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      display: block;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #fff !important;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-nav .nav-link.active {
+      color: #fff !important;
+      background-color: rgba(255, 255, 255, 0.15);
+      font-weight: 600;
+    }
+      .navbar-nav {
+        flex-direction: column;
+      }
+      
+      .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+      
+
+        /* Button styling */
+        .btn {
+            background-color: #d15b00; /* Muted orange color */
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #a63900; /* Darker shade of muted orange */
+        }
+
+        /* Card hover effect */
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        /* Custom styling for body */
+        .card-body {
+            background-color: #2C2C2C;
+        }
+
+        .card-title {
+            color: #FFD700;
+        }
+
+        .card-text {
+            color: #D3D3D3;
+        }
+
+        h1 {
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
+          <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
+          <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
+        </svg>
+        Novalayer
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="home.html">Home</a>
+          <a class="nav-link active" href="order.html">Data Entry</a>
+          <a class="nav-link" href="fidget.html">Fidgets</a>
+          <a class="nav-link" href="utility.html">Utility</a>
+          <a class="nav-link" href="other.html">Other</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <div class="container text-center mt-4">
+        <h2 class="mb-4">Browse Our Fidget Toys</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.thingiverse.com/assets/0c/8d/ed/d6/8c/large_display_ce1d27c0-f90e-4a93-9d64-89bcd5e1a90b.png" class="card-img-top" alt="Hexagon Fidget">
+                    <div class="card-body">
+                        <h5 class="card-title">Hexagon Fidget</h5>
+                        <p class="card-text">A hexagon that expands into a pyramid and shrinks back. A satisfying fidget toy.<br>Price: $2</p>
+                        <p>5 in stock</p>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.thingiverse.com/assets/2f/f8/7d/e0/dd/large_display_IMG_8444.jpeg" class="card-img-top" alt="Cone Fidget">
+                    <div class="card-body">
+                        <h5 class="card-title">Cone Fidget</h5>
+                        <p class="card-text">A two-part spiraly-cone fidget, great for stress relief.<br>Price: $2</p>
+                        <p>5 in stock</p>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.thingiverse.com/assets/73/be/2a/28/f3/b0069f34-9dd1-45c7-b8bb-e36e80dcaa14.gif" class="card-img-top" alt="Fidget Ring">
+                    <div class="card-body">
+                        <h5 class="card-title">Fidget Ring</h5>
+                        <p class="card-text">A small ring with tiny gears, just like a fidget spinner!<br>Price: $1</p>
+                        <p>5 in stock</p>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center mt-4">
+        <h3 class="mb-4">Special Deals</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.thingiverse.com/assets/bf/ec/ab/4c/39/large_display_3cdeba7a-8d63-4cae-8664-0bb0cf98c5b0.jpg" class="card-img-top" alt="Fidget Ring Deal">
+                    <div class="card-body">
+                        <h5 class="card-title">Fidget Ring Deal!</h5>
+                        <p class="card-text">Get 3 fidget rings for $2!<br>Price: $2</p>
+                        <p>5 in stock</p>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://files.cults3d.com/uploaders/14635024/illustration-file/a4c9bb7b-889e-45ee-bb59-48db3bf408f5/2.jpg" class="card-img-top" alt="Big Hexagon Fidget">
+                    <div class="card-body">
+                        <h5 class="card-title">Big Hexagon Fidget</h5>
+                        <p class="card-text">A bigger version of the OG hexagon version, more fun to fidget with!<br>Price: $3</p>
+                        <p>5 in stock</p>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i.etsystatic.com/25751292/r/il/f2d784/2614487190/il_1140xN.2614487190_cpca.jpg" class="card-img-top" alt="Infinity Cube Fidget">
+                    <div class="card-body">
+                        <h5 class="card-title">Infinity Cube Fidget</h5>
+                        <p class="card-text">A 6 by 2 block with gears to make it move infinitely!<br>Price: $3</p>
+                        <p>5 in stock</p>
+                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
