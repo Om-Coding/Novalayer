@@ -6,8 +6,104 @@
     <!-- Immediately redirect to your Apps Script /exec endpoint -->
     <meta http-equiv="refresh"
           content="0; url=https://script.google.com/macros/s/AKfycbz-5J_PMeJOVJKsBigzRAPMbH_IhBhQgtZSvyx6O9WGlUiq0KWvdrrbnJ8rYYUTmh8I/exec">
+  <style>  body {
+      background-color: #212529;
+      color: #fff;
+    }
+    
+    /* Improved navbar styles */
+    .navbar {
+      background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      padding: 12px 0;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Fix for navbar to make links inline and remove bullet points */
+    .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    .navbar-nav .nav-item {
+      margin-right: 15px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.9) !important;
+      transition: all 0.2s ease;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      display: block;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #fff !important;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-nav .nav-link.active {
+      color: #fff !important;
+      background-color: rgba(255, 255, 255, 0.15);
+      font-weight: 600;
+      
+    }
+   @media (max-width: 768px) {
+      .navbar-nav {
+        flex-direction: column;
+      }
+      
+      .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+  </style>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
+          <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
+          <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
+        </svg>
+        Novalayer
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="home.html">Home</a>
+          <a class="nav-link active" href="order.html">Data Entry</a>
+          <a class="nav-link" href="fidget.html">Fidgets</a>
+          <a class="nav-link" href="utility.html">Utility</a>
+          <a class="nav-link" href="other.html">Other</a>
+        </div>
+      </div>
+    </div>
+  </nav><br>
     <p>Redirecting to the form… If nothing happens, <a href="https://script.google.com/macros/s/AKfycbz-5J_PMeJOVJKsBigzRAPMbH_IhBhQgtZSvyx6O9WGlUiq0KWvdrrbnJ8rYYUTmh8I/exec">click here</a>.</p>
   </body>
 </html>
