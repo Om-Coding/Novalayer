@@ -13,7 +13,23 @@
     }
     
     /* Improved navbar styles */
-.navbar {
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 10px;
+}
+
+.navbar-nav .nav-link {
+  text-decoration: none;
+  padding: 8px 12px;
+}
+    .navbar {
       background: linear-gradient(135deg, #d15b00, #a63900); /* Muted orange gradient */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
