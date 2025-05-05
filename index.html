@@ -3,19 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Novalayer - Loading</title>
+  <title>Redirecting…</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background-color: #212529;
-    }
-
-    .navbar {
-      background: linear-gradient(135deg, #005dd1, #00398a);
+     body{
+     margin-top:0px;
+   }
+        .navbar {
+      background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       padding: 12px 0;
     }
@@ -36,6 +32,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
+    /* Fix for navbar to make links inline and remove bullet points */
     .navbar-nav {
       display: flex;
       flex-direction: row;
@@ -68,18 +65,28 @@
       background-color: rgba(255, 255, 255, 0.15);
       font-weight: 600;
     }
+      .navbar-nav {
+        flex-direction: column;
+      }
+      
+      .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
 
+
+    /* Button styling */
     .btn {
-      background-color: #d15b00;
+      background-color: #d15b00; /* Muted orange color */
       transition: background-color 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #a63900;
+      background-color: #a63900; /* Darker shade of muted orange */
     }
 
-    /* Enhanced Loading Experience */
-    .loading-experience {
+    /* Loading overlay styles */
+    .loading-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -90,7 +97,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 1.2s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .loading-container {
@@ -100,19 +107,18 @@
       justify-content: center;
     }
 
-    /* Main loader animation */
     .loader {
       position: relative;
-      width: 120px;
-      height: 120px;
-      margin-bottom: 30px;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
     }
 
     .logo-container {
       width: 100%;
       height: 100%;
       position: relative;
-      animation: rotate 12s linear infinite;
+      animation: rotate 8s linear infinite;
     }
 
     @keyframes rotate {
@@ -126,13 +132,13 @@
       height: 100%;
       border-radius: 16px;
       background: linear-gradient(135deg, #d15b00, #a63900);
-      animation: pulse 2.5s ease-in-out infinite;
+      animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.08); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     .logo-diamond {
@@ -145,16 +151,16 @@
     }
 
     .diamond {
-      width: 65%;
-      height: 65%;
+      width: 60%;
+      height: 60%;
       background-color: white;
       transform: rotate(45deg);
-      animation: diamondPulse 2s ease-in-out infinite;
+      animation: diamondPulse 1.5s ease-in-out infinite;
     }
 
     @keyframes diamondPulse {
       0% { transform: rotate(45deg) scale(1); }
-      50% { transform: rotate(45deg) scale(1.15); }
+      50% { transform: rotate(45deg) scale(1.1); }
       100% { transform: rotate(45deg) scale(1); }
     }
 
@@ -162,90 +168,25 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 35%;
-      height: 35%;
+      width: 30%;
+      height: 30%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       background-color: #d15b00;
-      animation: colorChange 5s ease-in-out infinite;
+      animation: colorChange 4s ease-in-out infinite;
     }
 
     @keyframes colorChange {
       0% { background-color: #d15b00; transform: translate(-50%, -50%) scale(1); }
-      25% { background-color: #e27e33; transform: translate(-50%, -50%) scale(1.1); }
-      50% { background-color: #0D6EFD; transform: translate(-50%, -50%) scale(1.3); }
-      75% { background-color: #0052cc; transform: translate(-50%, -50%) scale(1.1); }
+      50% { background-color: #0D6EFD; transform: translate(-50%, -50%) scale(1.2); }
       100% { background-color: #d15b00; transform: translate(-50%, -50%) scale(1); }
     }
 
-    /* Additional orbital elements */
-    .orbit {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 2px dashed rgba(255, 255, 255, 0.3);
-      animation: orbitRotate 8s linear infinite;
-    }
-
-    .orbit:nth-child(2) {
-      width: 140%;
-      height: 140%;
-      top: -20%;
-      left: -20%;
-      animation-duration: 15s;
-      animation-direction: reverse;
-    }
-
-    @keyframes orbitRotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .orbital-dot {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background-color: #0D6EFD;
-      border-radius: 50%;
-      top: -6px;
-      left: 50%;
-      margin-left: -6px;
-      box-shadow: 0 0 10px #0D6EFD;
-    }
-
-    .orbit:nth-child(2) .orbital-dot {
-      background-color: #d15b00;
-      box-shadow: 0 0 10px #d15b00;
-    }
-
-    /* Progress bar */
-    .progress-container {
-      width: 240px;
-      height: 6px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 3px;
-      margin: 20px 0;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(to right, #d15b00, #0D6EFD);
-      border-radius: 3px;
-      transition: width 0.5s ease;
-    }
-
-    /* Text elements */
     .site-name {
       color: #fff;
-      font-size: 32px;
+      font-size: 24px;
       font-weight: bold;
       margin-top: 15px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .loading-text {
@@ -284,46 +225,23 @@
       100% { opacity: 0; }
     }
 
-    .loading-message {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 16px;
-      text-align: center;
-      margin-top: 15px;
-      max-width: 300px;
-      min-height: 48px;
-    }
-
-    /* Shadow effect */
+    /* Add a subtle shadow effect */
     .shadow {
-      margin-top: 25px;
-      width: 100px;
+      margin-top: 20px;
+      width: 90px;
       height: 20px;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.2);
       border-radius: 50%;
-      filter: blur(8px);
-      animation: shadow 2.5s ease-in-out infinite;
+      filter: blur(5px);
+      animation: shadow 2s ease-in-out infinite;
     }
 
     @keyframes shadow {
-      0%, 100% { transform: scale(0.8); opacity: 0.2; }
-      50% { transform: scale(1.2); opacity: 0.5; }
+      0%, 100% { transform: scale(0.9); opacity: 0.2; }
+      50% { transform: scale(1.1); opacity: 0.4; }
     }
 
-    /* Hide iframe initially */
-    .content-container {
-      display: none;
-      width: 100%;
-      height: calc(100vh - 76px);
-      margin-top: 76px;
-    }
-    
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Responsive navbar */
+    /* Media queries for responsive navigation */
     @media (max-width: 991.98px) {
       .navbar-nav {
         flex-direction: column;
@@ -333,21 +251,18 @@
         margin-right: 0;
         margin-bottom: 5px;
       }
+      
+      body {
+        margin-top: 70px;
+      }
     }
   </style>
 </head>
-
-<body>
-  <!-- Enhanced Loading Experience -->
-  <div class="loading-experience" id="loadingExperience">
+<body class="bg-dark">
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-container">
       <div class="loader">
-        <div class="orbit">
-          <div class="orbital-dot"></div>
-        </div>
-        <div class="orbit">
-          <div class="orbital-dot"></div>
-        </div>
         <div class="logo-container">
           <div class="logo-background"></div>
           <div class="logo-diamond">
@@ -358,18 +273,12 @@
       </div>
       <div class="shadow"></div>
       <div class="site-name">Novalayer</div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
       <div class="loading-text">
         Loading<span class="loading-dots">
           <span class="dot">.</span>
           <span class="dot">.</span>
           <span class="dot">.</span>
         </span>
-      </div>
-      <div class="loading-message" id="loadingMessage">
-        Initializing systems...
       </div>
     </div>
   </div>
@@ -400,101 +309,44 @@
     </div>
   </nav>
 
-  <!-- Hidden Content Container -->
-  <div class="content-container" id="contentContainer">
-    <iframe id="orderFormFrame" src="https://script.google.com/macros/s/AKfycbxlP4VzjvYA3ZReAM-AjRL6jaHZVaW1qaysf6CR0PZmaxuNQPjz3j9JwwF6HcMA2R0m/exec" frameborder="0"></iframe>
+  <!-- Main content -->
+  <div class="container">
+    <iframe src="https://script.google.com/macros/s/AKfycbxlP4VzjvYA3ZReAM-AjRL6jaHZVaW1qaysf6CR0PZmaxuNQPjz3j9JwwF6HcMA2R0m/exec" style="width:100vw; height:100vw;" frameborder="0"></iframe>
   </div>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-bYvNP7CyZwKCJftM0mUBJw+hPwF08Y0JB9p/MzKCJVoFuYC2l8vUkQl8DxJJt50i" crossorigin="anonymous"></script>
-
-  <!-- Enhanced Loading Script -->
+  
+  <!-- Loading script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const loadingExperience = document.getElementById('loadingExperience');
-      const contentContainer = document.getElementById('contentContainer');
-      const progressBar = document.getElementById('progressBar');
-      const loadingMessage = document.getElementById('loadingMessage');
-      const iframe = document.getElementById('orderFormFrame');
+    // Wait for iframe to load
+    window.addEventListener('load', function() {
+      const iframe = document.querySelector('iframe');
       
-      // Loading messages to display
-      const loadingMessages = [
-        "Initializing systems...",
-        "Connecting to server...",
-        "Preparing order form...",
-        "Loading product data...",
-        "Syncing inventory status...",
-        "Almost there...",
-        "Setting up secure connection...",
-        "Finalizing order system..."
-      ];
-      
-      let currentMessageIndex = 0;
-      let progress = 0;
-      
-      // Function to update loading progress
-      function updateProgress() {
-        // Increment progress
-        progress += Math.random() * 6;
+      // Function to hide the loading overlay
+      function hideOverlay() {
+        const overlay = document.getElementById('loadingOverlay');
+        overlay.style.opacity = '0';
         
-        // Cap progress at various stages
-        if (progress > 95) progress = 95 + (Math.random() * 3);
-        if (progress > 100) progress = 100;
-        
-        // Update progress bar
-        progressBar.style.width = progress + '%';
-        
-        // Update loading message every ~15% progress
-        if (progress > (currentMessageIndex + 1) * 15 && currentMessageIndex < loadingMessages.length - 1) {
-          currentMessageIndex++;
-          loadingMessage.style.opacity = 0;
-          
-          setTimeout(() => {
-            loadingMessage.textContent = loadingMessages[currentMessageIndex];
-            loadingMessage.style.opacity = 1;
-          }, 300);
-        }
-        
-        // Continue updating progress if not complete
-        if (progress < 100) {
-          setTimeout(updateProgress, 300 + Math.random() * 700);
-        }
+        setTimeout(function() {
+          overlay.style.display = 'none';
+        }, 500);
       }
       
-      // Start progress updates
-      updateProgress();
-      
-      // Function to complete loading and show content
-      function completeLoading() {
-        // Ensure progress bar is at 100%
-        progressBar.style.width = '100%';
-        loadingMessage.textContent = "Ready!";
+      // If iframe is already loaded, hide overlay
+      if (iframe && iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        hideOverlay();
+      } else if (iframe) {
+        // Otherwise wait for iframe to load
+        iframe.addEventListener('load', hideOverlay);
         
-        // Short delay before hiding loading screen
-        setTimeout(() => {
-          loadingExperience.style.opacity = 0;
-          
-          setTimeout(() => {
-            loadingExperience.style.display = 'none';
-            contentContainer.style.display = 'block';
-          }, 1200);
-        }, 800);
+        // Fallback - hide overlay after 8 seconds even if iframe hasn't loaded
+        setTimeout(hideOverlay, 8000);
+      } else {
+        // If no iframe is found, just hide after 5 seconds
+        setTimeout(hideOverlay, 5000);
       }
-      
-      // Set a minimum loading time of 8 seconds
-      setTimeout(() => {
-        // Try to detect if iframe has loaded
-        if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-          completeLoading();
-        } else {
-          // Add load event listener to iframe
-          iframe.addEventListener('load', completeLoading);
-          
-          // Fallback - complete loading after 12 seconds regardless
-          setTimeout(completeLoading, 4000);
-        }
-      }, 8000);
     });
   </script>
 </body>
