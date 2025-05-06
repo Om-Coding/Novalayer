@@ -6,104 +6,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Novalayer</title>
- <style>       
-   /* Reset all margins and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <style>       
+        /* Reset all margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevents horizontal scrollbar */
-}
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* Make navbar flush with top */
-.navbar {
-  margin-top: 0;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  position: relative;
-  top: 0;
-}
-     body{
-     margin-top:0px;
-   }
-    .navbar {
-      background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding: 12px 0;
-    }
+        /* Make navbar flush with top */
+        .navbar {
+            margin-top: 0;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            position: relative;
+            top: 0;
+        }
+        
+        body{
+            margin-top: 0px;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 12px 0;
+        }
 
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .navbar-brand img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-    .navbar-nav {
-      display: flex;
-      flex-direction: row;
-      padding-left: 0;
-      margin-bottom: 0;
-      list-style: none;
-    }
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
 
-    .navbar-nav .nav-item {
-      margin-right: 15px;
-    }
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
 
-    .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.9) !important;
-      transition: all 0.2s ease;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 500;
-      text-decoration: none;
-      display: block;
-    }
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            transition: all 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            display: block;
+        }
 
-    .navbar-nav .nav-link:hover {
-      color: #fff !important;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-    .navbar-nav .nav-link.active {
-      color: #fff !important;
-      background-color: rgba(255, 255, 255, 0.15);
-      font-weight: 600;
-    }
-      
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('/api/placeholder/1400/600') center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
 
         /* Button styling */
-        .btn {
-            background-color: #d15b00; /* Muted orange color */
-            transition: background-color 0.3s ease;
+        .btn-primary {
+            background: linear-gradient(135deg, #d15b00, #a63900);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(209, 91, 0, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #a63900; /* Darker shade of muted orange */
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(209, 91, 0, 0.5);
+            background: linear-gradient(135deg, #e46400, #b94000);
         }
 
-        /* Card hover effect */
+        /* Products section */
+        .products {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #FFD700;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 80px;
+            background: linear-gradient(to right, #005dd1, #00398a);
+            border-radius: 2px;
+        }
+
         .card {
-            transition: transform 0.3s ease-in-out;
+            background-color: #1e1e1e;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         .card-img-top {
@@ -111,76 +182,257 @@ html, body {
             object-fit: cover;
         }
 
-        .container {
-            margin-top: 50px;
-        }
-
-        /* Custom styling for body */
         .card-body {
-            background-color: #2C2C2C;
+            background-color: #1e1e1e;
+            padding: 20px;
         }
 
         .card-title {
             color: #FFD700;
+            font-weight: 600;
+            font-size: 1.25rem;
         }
 
         .card-text {
-            color: #D3D3D3;
+            color: #e0e0e0;
+            margin-bottom: 20px;
         }
 
-        h1 {
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        /* Team section */
+        .team {
+            padding: 60px 0;
+            background-color: #191919;
+            border-radius: 30px;
+            margin: 0 20px 60px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #005dd1;
+            box-shadow: 0 5px 15px rgba(0, 93, 209, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .team-member h3 {
             color: #FFD700;
-            margin-bottom: 30px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            color: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0c0c0c;
+            padding: 40px 0 20px;
+            color: #a0a0a0;
+        }
+
+        footer h5 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-dark">
-    <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
-          <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
-          <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
-        </svg>
-        Novalayer
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="home.html">Home</a>
-          <a class="nav-link active" href="index.html">Order</a>
-          <a class="nav-link" href="fidget.html">Fidgets</a>
-          <a class="nav-link" href="utility.html">Utility</a>
-          <a class="nav-link" href="other.html">Other</a>
+<body>
+    <!-- Navbar - Kept exactly the same -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
+                    <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
+                    <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
+                </svg>
+                Novalayer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="home.html">Home</a>
+                    <a class="nav-link active" href="index.html">Order</a>
+                    <a class="nav-link" href="fidget.html">Fidgets</a>
+                    <a class="nav-link" href="utility.html">Utility</a>
+                    <a class="nav-link" href="other.html">Other</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  
-  <h1>Welcome to NovaLayer!</h1>
-  <strong style="color:yellow;">
-    <p>NovaLayer is here for the one thing that everyone wants. 3d Prints! Here at NovaLayer, we make it so that you
-      dont have to spend $1000 on 3d Printer to make 3d prints, instead we take the responsibility of spending $1000 and
-      give thiings to you for only $2. Though our collection might be limited, for it is the most popular things people
-      have, you can find us at Jimmybobcurnal@gmail.com . Another thing we offer are ID cards. You can put what ever you
-      want on them and show them to anyone. If it is something not school appropiate then we will have to not give you
-      the ID card, and in fact we wont. Thank you and enjoy Novalayer!</p><br><br>
-  </strong>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to NovaLayer!</h1>
+            <p>We bring 3D printing to you without the $1000 investment. Get high-quality 3D prints starting at just $2. From fidget toys to utility items, we've got you covered with affordable 3D printing solutions.</p>
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section class="about container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title">About NovaLayer</h2>
+                <p>NovaLayer is here for the one thing that everyone wants - affordable 3D prints! We make it so that you don't have to spend $1000 on a 3D printer. Instead, we take that responsibility and provide high-quality prints starting at just $2.</p>
+                <p>Though our collection might be focused on the most popular items people want, we're always expanding our offerings. We also create custom ID cards with your design (keeping it school-appropriate, of course!).</p>
+                <p>Contact us at <a href="mailto:Jimmybobcurnal@gmail.com" style="color: #005dd1;">Jimmybobcurnal@gmail.com</a> to place your order or inquire about custom designs.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="/api/placeholder/600/400" alt="3D Printing in action" class="img-fluid rounded-3 shadow">
+            </div>
+        </div>
+    </section>
 
+    <!-- Products Section -->
+    <section class="products container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/api/placeholder/400/250" class="card-img-top" alt="Fidget Cube">
+                    <div class="card-body">
+                        <h5 class="card-title">Fidget Cube</h5>
+                        <div class="card-price">$2.00</div>
+                        <p class="card-text">A popular stress-relieving fidget toy with multiple interactive features.</p>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/api/placeholder/400/250" class="card-img-top" alt="Phone Stand">
+                    <div class="card-body">
+                        <h5 class="card-title">Phone Stand</h5>
+                        <div class="card-price">$3.50</div>
+                        <p class="card-text">A practical phone stand for your desk, perfect for video calls or watching content.</p>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/api/placeholder/400/250" class="card-img-top" alt="Custom ID Card">
+                    <div class="card-body">
+                        <h5 class="card-title">Custom ID Card</h5>
+                        <div class="card-price">$5.00</div>
+                        <p class="card-text">Personalized ID cards with your design (school-appropriate content only).</p>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <h1>You can find your prints at...</h1><br>
-  <div class="container-fluid" style="color:blue;">
-    <div class="row">
-      <h1 class="col">Om Sharma</h1>
-      <h1 class="col">Avi Metha</h1>
-      <h1 class="col">Aryan Gilhotra</h1>
-    </div>
-  </div>
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Om Sharma">
+                        <h3>Om Sharma</h3>
+                        <p>3D Printing Specialist</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Avi Metha">
+                        <h3>Avi Metha</h3>
+                        <p>Design Expert</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Aryan Gilhotra">
+                        <h3>Aryan Gilhotra</h3>
+                        <p>Customer Relations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>NovaLayer</h5>
+                    <p>Making 3D printing accessible and affordable for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="index.html">Order</a></li>
+                        <li><a href="fidget.html">Fidgets</a></li>
+                        <li><a href="utility.html">Utility</a></li>
+                        <li><a href="other.html">Other</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: Jimmybobcurnal@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NovaLayer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+</html>
