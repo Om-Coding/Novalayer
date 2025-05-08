@@ -1,98 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="icon" href="images/logo.pvg" type="image/x-icon">
-    <title>Novalayer</title>
-    <style>
-        /* Navbar styling */
-        body{
-     margin-top:0px;
-   }
+    <title>Novalayer - Utility Items</title>
+    <style>       
+        /* Reset all margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Make navbar flush with top */
         .navbar {
-      background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding: 12px 0;
-    }
+            margin-top: 0;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            position: relative;
+            top: 0;
+        }
+        
+        body{
+            margin-top: 0px;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 12px 0;
+        }
 
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .navbar-brand img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-    /* Fix for navbar to make links inline and remove bullet points */
-    .navbar-nav {
-      display: flex;
-      flex-direction: row;
-      padding-left: 0;
-      margin-bottom: 0;
-      list-style: none;
-    }
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
 
-    .navbar-nav .nav-item {
-      margin-right: 15px;
-    }
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
 
-    .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.9) !important;
-      transition: all 0.2s ease;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 500;
-      text-decoration: none;
-      display: block;
-    }
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            transition: all 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            display: block;
+        }
 
-    .navbar-nav .nav-link:hover {
-      color: #fff !important;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .navbar-nav .nav-link.active {
-      color: #fff !important;
-      background-color: rgba(255, 255, 255, 0.15);
-      font-weight: 600;
-    }
-      .navbar-nav {
-        flex-direction: column;
-      }
-      
-      .navbar-nav .nav-item {
-        margin-right: 0;
-        margin-bottom: 5px;
-      }
-      
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('/api/placeholder/1400/600') center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
 
         /* Button styling */
-        .btn {
-            background-color: #d15b00; /* Muted orange color */
-            transition: background-color 0.3s ease;
+        .btn-primary {
+            background: linear-gradient(135deg, #d15b00, #a63900);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(209, 91, 0, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #a63900; /* Darker shade of muted orange */
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(209, 91, 0, 0.5);
+            background: linear-gradient(135deg, #e46400, #b94000);
         }
 
-        /* Card hover effect */
+        /* Products section */
+        .products {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #FFD700;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 80px;
+            background: linear-gradient(to right, #005dd1, #00398a);
+            border-radius: 2px;
+        }
+
         .card {
-            transition: transform 0.3s ease-in-out;
+            background-color: #1e1e1e;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         .card-img-top {
@@ -100,98 +183,243 @@
             object-fit: cover;
         }
 
-        .container {
-            margin-top: 50px;
-        }
-
-        /* Custom styling for body */
         .card-body {
-            background-color: #2C2C2C;
+            background-color: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .card-title {
             color: #FFD700;
+            font-weight: 600;
+            font-size: 1.25rem;
         }
 
         .card-text {
-            color: #D3D3D3;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
-        h1 {
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .stock-info {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0c0c0c;
+            padding: 40px 0 20px;
+            color: #a0a0a0;
+            margin-top: 60px; 
+        }
+
+        footer h5 {
             color: #FFD700;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
+        }
+        
+        .category-section {
+            margin-bottom: 60px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-dark">
+<body>
     <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
-          <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
-          <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
-        </svg>
-        Novalayer
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="home.html">Home</a>
-          <a class="nav-link active" href="index.html">Order</a>
-          <a class="nav-link" href="fidget.html">Fidgets</a>
-          <a class="nav-link" href="utility.html">Utility</a>
-          <a class="nav-link" href="other.html">Other</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
+                    <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
+                    <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
+                </svg>
+                Novalayer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="home.html">Home</a>
+                    <a class="nav-link" href="index.html">Order</a>
+                    <a class="nav-link" href="fidget.html">Fidgets</a>
+                    <a class="nav-link active" href="utility.html">Utility</a>
+                    <a class="nav-link" href="other.html">Other</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Browse Our Utility Items</h1>
+            <p>Explore our collection of practical 3D printed utility items designed to solve everyday problems. All made with premium materials for durability and functionality.</p>
+        </div>
+    </section>
 
-
-    <!-- Main content -->
-    <div class="container text-center">
-        <h1 class="text-light mb-4">Explore the "useful" collection!</h1>
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card">
+    <!-- Utility Products -->
+    <section class="products container category-section">
+        <h2 class="section-title">Popular Utility Items</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
                     <img src="https://makerworld.bblmw.com/makerworld/model/US56539a3b2fa404/design/2024-12-14_2df4939d0da0d8.jpg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Reed Case">
                     <div class="card-body">
                         <h5 class="card-title">Reed Case</h5>
-                        <p class="card-text">A sturdy case designed to hold reeds securely. <br>Price: $3</p>
-                        <p>5 in stock</p>
-                        <a href="order.html" class="btn btn-primary w-100">Order Now</a>
+                        <div class="card-price">$3.00</div>
+                        <p class="card-text">A sturdy case designed to hold reeds securely.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://makerworld.bblmw.com/makerworld/model/US1fe3260294cd56/design/2024-11-24_69c4543ac71f8.jpg?x-oss-process=image/resize,w_400/format,webp" class="card-img-top" alt="Small Container">
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/US1fe3260294cd56/design/2024-11-24_69c4543ac71f8.jpg?x-oss-process=image/resize,w_400/format,webp" class="card-img-top" alt="iPhone Stand">
                     <div class="card-body">
-                        <h5 class="card-title">Iphone Stand</h5>
-                        <p class="card-text">Perfect stand to watch content or just have it hanging <br>Price: $2</p>
-                        <p>5 in stock</p>
-                        <a href="order.html" class="btn btn-primary w-100">Order Now</a>
+                        <h5 class="card-title">iPhone Stand</h5>
+                        <div class="card-price">$2.00</div>
+                        <p class="card-text">Perfect stand to watch content or just have your phone at a comfortable viewing angle.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card">
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
                     <img src="https://makerworld.bblmw.com/makerworld/model/US255b38c6da9b05/design/2025-03-21_f34103ac14a3d.png?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Big Container">
                     <div class="card-body">
                         <h5 class="card-title">Big Container</h5>
-                        <p class="card-text">A large container for storing various items securely. <br>Price: $3</p>
-                        <p>5 in stock</p>
-                        <a href="order.html" class="btn btn-primary w-100">Order Now</a>
+                        <div class="card-price">$3.00</div>
+                        <p class="card-text">A large container for storing various items securely.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- More Utility Items Section -->
+    <section class="products container category-section">
+        <h2 class="section-title">Special Utility Deals</h2>
+        <div class="row">
+            <!-- Additional Utility Item 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/US7c4a63d47125ad/design/2025-01-18_a343d36daf047.jpg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Cable Organizer">
+                    <div class="card-body">
+                        <h5 class="card-title">Cable Organizer</h5>
+                        <div class="card-price">$4.00</div>
+                        <p class="card-text">Keep your desk tidy with this practical cable management solution.</p>
+                        <p class="stock-info">3 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional Utility Item 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/USe8aa5c8b07ca5a/design/2024-07-16_48151ea2f5f79.jpg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Desk Organizer">
+                    <div class="card-body">
+                        <h5 class="card-title">Desk Organizer</h5>
+                        <div class="card-price">$5.00</div>
+                        <p class="card-text">A compact solution to keep your pens, pencils, and small items organized.</p>
+                        <p class="stock-info">4 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional Utility Item 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/US7c3703380afef0/design/2024-10-08_781ca4bf8f103.jpeg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Headphone Stand">
+                    <div class="card-body">
+                        <h5 class="card-title">Headphone Stand</h5>
+                        <div class="card-price">$5</div>
+                        <p class="card-text">A sleek stand to display and store your headphones when not in use.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>NovaLayer</h5>
+                    <p>Making 3D printing accessible and affordable for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="index.html">Order</a></li>
+                        <li><a href="fidget.html">Fidgets</a></li>
+                        <li><a href="utility.html">Utility</a></li>
+                        <li><a href="other.html">Other</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: Jimmybobcurnal@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NovaLayer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 
