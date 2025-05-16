@@ -1,82 +1,69 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Novalayer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <style>       
-   body{
-     margin-top:0px;
-   }
-    .navbar {
-      background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding: 12px 0;
-    }
-
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 24px;
+    body {
+      margin-top: 0;
+      background-color: #121212;
+      color: #f8f9fa;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
     }
 
-    .navbar-brand img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
+```
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 15px;
+}
 
-    .navbar-nav {
-      display: flex;
-      flex-direction: row;
-      padding-left: 0;
-      margin-bottom: 0;
-      list-style: none;
-    }
+.form-section {
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  width: 100%;
+}
 
-    .navbar-nav .nav-item {
-      margin-right: 15px;
-    }
+.form-section h2 {
+  margin-bottom: 24px;
+  font-weight: 600;
+}
 
-    .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.9) !important;
-      transition: all 0.2s ease;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 500;
-      text-decoration: none;
-      display: block;
-    }
+.custom-btn {
+  background-color: #d15b00;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
 
-    .navbar-nav .nav-link:hover {
-      color: #fff !important;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+.custom-btn:hover {
+  background-color: #a63900;
+  color: white;
+}
+```
 
-    .navbar-nav .nav-link.active {
-      color: #fff !important;
-      background-color: rgba(255, 255, 255, 0.15);
-      font-weight: 600;
-    }
-
-    /* Button styling */
-    .btn {
-      background-color: #d15b00;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #a63900;
-    }
   </style>
 </head>
 <body class="bg-dark">
-  
-  <!-- Navbar -->
+
+  <!-- Navbar (unchanged) -->
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -102,9 +89,16 @@
     </div>
   </nav>
 
-  <!-- iframe section -->
-  <button href="https://script.google.com/macros/s/AKfycbxzV2DDPhD6I0ODb3DHPdppLYOR_rfRKGroyjoClDzGrdRsQixIjm73eUvPPwUgJ60F/exec">Go to order form</button>
+  <!-- Main content -->
+
+  <div class="content-wrapper">
+    <div class="form-section">
+      <h2>Place Your Order</h2>
+      <a href="https://script.google.com/macros/s/AKfycbxzV2DDPhD6I0ODb3DHPdppLYOR_rfRKGroyjoClDzGrdRsQixIjm73eUvPPwUgJ60F/exec" class="custom-btn">Go to Order Form</a>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-S3GkUwzQK5Uft6cSvl47z1m2vKmReTtBhwx9Xo4qRlKQep2n6Sk6PLaMwl2xkI5d" crossorigin="anonymous"></script>
+
 </body>
 </html>
