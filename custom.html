@@ -69,14 +69,245 @@
       transition: background-color 0.3s ease;
     }
 
+      /* Button styling kept as original */
+    .btn {
+      background-color: #d15b00;
+      transition: background-color 0.3s ease;
+    }
     .btn:hover {
       background-color: #a63900;
     }
+    
+    /* New styles for improved design */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') center/cover;
+      padding: 100px 0;
+      margin-bottom: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 114, 255, 0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: #e0e0e0;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .content-wrapper {
+      padding: 20px 0 80px;
+    }
+    
+    .form-section {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      padding: 40px;
+      margin: 0 auto;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid #333;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .form-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #d15b00, #ff8f3c);
+    }
+    
+    .form-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    
+    .form-section p {
+      font-size: 1.2rem;
+      color: #b0b0b0;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    .custom-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #d15b00, #ff7b00);
+      color: white;
+      font-weight: 600;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(209, 91, 0, 0.4);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .custom-btn:hover {
+      background: linear-gradient(135deg, #ff7b00, #d15b00);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(209, 91, 0, 0.5);
+      color: white;
+    }
+    
+    .custom-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 60px;
+    }
+    
+    .feature-card {
+      background-color: #252525;
+      border-radius: 12px;
+      padding: 25px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #333;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff7b00;
+    }
+    
+    .feature-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    
+    .feature-description {
+      color: #b0b0b0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    
+    .footer {
+      background-color: #0a0a0a;
+      padding: 30px 0;
+      text-align: center;
+      margin-top: 60px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    /* Floating 3D elements for visual interest */
+    .floating-shape {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(209, 91, 0, 0.4), rgba(255, 123, 0, 0.2));
+      filter: blur(3px);
+      z-index: -1;
+      animation: float 12s infinite ease-in-out;
+    }
+    
+    .shape1 {
+      top: -30px;
+      right: 10%;
+      animation-delay: 0s;
+    }
+    
+    .shape2 {
+      bottom: -20px;
+      left: 15%;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, rgba(0, 93, 209, 0.3), rgba(0, 57, 138, 0.15));
+      animation-delay: 4s;
+    }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(15px, 15px) rotate(5deg); }
+      50% { transform: translate(0, 30px) rotate(0deg); }
+      75% { transform: translate(-15px, 15px) rotate(-5deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .form-section {
+        padding: 30px;
+        margin: 0 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-section {
+        padding: 70px 0;
+      }
+      
+      .form-section h2 {
+        font-size: 2rem;
+      }
+      
+      .features {
+        gap: 20px;
+      }
+      
+      .feature-card {
+        width: 100%;
+        margin: 0 20px;
+      }
+    }
   </style>
 </head>
-<body class="bg-dark">
+<body>
   
-  <!-- Navbar -->
+  <!-- Navbar - Kept exactly as provided -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -103,16 +334,55 @@
     </div>
   </nav>
 
-  <div class="content-wrapper" style="text-align:center;">
-    <div class="form-section">
-      <h2>Go to form</h2>
-      <p>Go to the custom order form to buy custom prints,statues and id Cards!</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo7mpxE4D6LuaHOL2BjJUOAlhD4-E2rqbnF0vF_8BdZFu4eQ/viewform?embedded=true" class="custom-btn">Go to Order Form</a>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <h1 class="hero-title">Custom 3D Printing Solutions</h1>
+      <p class="hero-subtitle">Bring your ideas to life with our high-quality custom 3D printing services. From fidgets to utility items, we create exactly what you need.</p>
+    </div>
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="form-section">
+        <h2>Custom Order Form</h2>
+        <p>Ready to order your custom prints, statues, and ID cards? Fill out our simple form to get started with your personalized creation today!</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo7mpxE4D6LuaHOL2BjJUOAlhD4-E2rqbnF0vF_8BdZFu4eQ/viewform?embedded=true" class="custom-btn">Order Now</a>
+      
+        <!-- Features Section -->
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">Custom Designs</h3>
+            <p class="feature-description">Send us your ideas or designs and we'll bring them to life with precise 3D printing technology.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Fast Turnaround</h3>
+            <p class="feature-description">Quick processing and production times to get your custom items to you as soon as possible.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3 class="feature-title">Quality Materials</h3>
+            <p class="feature-description">We use premium materials to ensure durability and excellent finish on all our products.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Novalayer. All rights reserved.</p>
+    </div>
+  </footer>
  
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-S3GkUwzQK5Uft6cSvl47z1m2vKmReTtBhwx9Xo4qRlKQep2n6Sk6PLaMwl2xkI5d" crossorigin="anonymous"></script>
 </body>
 </html>
