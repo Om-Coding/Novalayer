@@ -79,6 +79,8 @@
       position: relative;
       z-index: 1;
       box-shadow: 0 6px 15px rgba(209, 91, 0, 0.3);
+      min-height: 44px;
+      min-width: 200px;
     }
 
     .custom-btn:hover {
@@ -123,7 +125,7 @@
       z-index: 1;
     }
     
-    /* Navbar styles - kept untouched as requested */
+    /* Enhanced Navbar styles */
     .navbar {
       margin-top: 0;
       padding-top: 12px;
@@ -183,26 +185,75 @@
       background-color: rgba(255, 255, 255, 0.15);
       font-weight: 600;
     }
-    
-    /* Responsive adjustments */
+
+
+
     @media (max-width: 768px) {
+      .content-wrapper {
+        padding: 30px 15px;
+      }
+
       .form-section {
-        padding: 40px 25px;
+        padding: 30px 20px;
+        max-width: 95%;
       }
       
       .form-section h2 {
         font-size: 28px;
+        margin-bottom: 20px;
       }
       
       .description {
         font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+      .custom-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+        min-width: 180px;
+        word-wrap: break-word;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-section {
+        padding: 25px 15px;
+      }
+
+      .form-section h2 {
+        font-size: 24px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .custom-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+        min-width: 160px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+        gap: 8px;
+      }
+
+      .navbar-brand svg {
+        width: 32px;
+        height: 32px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar (unchanged as requested) -->
+  <!-- Enhanced Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -222,7 +273,7 @@
           <a class="nav-link" href="fidget.html">Fidgets</a>
           <a class="nav-link" href="utility.html">Utility</a>
           <a class="nav-link" href="other.html">Other</a>
-          <a class="nav-link active" href=index.html">Order</a>
+          <a class="nav-link active" href="index.html">Order</a>
           <a class="nav-link" href="custom.html">Custom</a>
         </div>
       </div>
