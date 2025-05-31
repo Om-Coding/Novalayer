@@ -95,7 +95,7 @@
 
         /* Hero section */
         .hero {
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('/api/placeholder/1400/600') center/cover no-repeat;
             border-radius: 0 0 30px 30px;
@@ -103,9 +103,9 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             background: linear-gradient(135deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             background-clip: text;
@@ -115,21 +115,73 @@
 
         .hero p {
             color: #e0e0e0;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .welcome-message {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(0, 57, 138, 0.1));
+            border: 2px solid rgba(13, 110, 253, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
             max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
+            text-align: center;
+        }
+
+        .welcome-message h3 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .welcome-message p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .filament-info {
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(30, 30, 30, 0.9));
+            border-left: 5px solid #FFD700;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .filament-info h4 {
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filament-info .color-swatch {
+            width: 25px;
+            height: 25px;
+            background-color: #2c2c2c;
+            border: 2px solid #666;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         /* Button styling */
         .btn-primary {
             background: linear-gradient(135deg, #d15b00, #a63900);
             border: none;
-            padding: 12px 30px;
+            padding: 15px 35px;
             font-weight: 600;
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(209, 91, 0, 0.4);
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         .btn-primary:hover {
@@ -172,6 +224,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 30px;
+            position: relative;
         }
 
         .card:hover {
@@ -186,7 +239,7 @@
 
         .card-body {
             background-color: #1e1e1e;
-            padding: 20px;
+            padding: 25px;
         }
 
         .card-title {
@@ -205,6 +258,30 @@
             font-weight: 700;
             color: #4caf50;
             margin-bottom: 15px;
+        }
+
+        .filament-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filament-badge .color-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #2c2c2c;
+            border: 1px solid #666;
+            border-radius: 50%;
         }
 
         /* Team section */
@@ -313,8 +390,13 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Welcome to NovaLayer!</h1>
-            <p>We bring 3D printing to you without the $1000 investment. Get high-quality 3D prints starting at just $2. From fidget toys to utility items, we've got you covered with affordable 3D printing solutions.</p>
+            <h1>Welcome to NovaLayer! 🎉</h1>
+            <p>We're thrilled to have you here! We bring the magic of 3D printing directly to you without the hefty $1000 investment. Experience high-quality 3D prints starting at just $2. From creative fidget toys to practical utility items, we're here to make your ideas come to life!</p>
+            
+            <div class="welcome-message">
+                <h3>🚀 Your 3D Printing Journey Starts Here!</h3>
+                <p>Whether you're a student, creator, or just someone who loves cool gadgets, we're excited to help you discover the amazing world of 3D printing. Our friendly team is ready to bring your favorite designs to life!</p>
+            </div>
 <!--             <a href="index.html" class="btn btn-primary">Get Started</a> -->
         </div>
     </section>
@@ -324,9 +406,18 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <h2 class="section-title">About NovaLayer</h2>
-                <p>NovaLayer is here for the one thing that everyone wants - affordable 3D prints! We make it so that you don't have to spend $1000 on a 3D printer. Instead, we take that responsibility and provide high-quality prints starting at just $2.</p>
-                <p>Though our collection might be focused on the most popular items people want, we're always expanding our offerings. We also create custom ID cards with your design (keeping it school-appropriate, of course!).</p>
-                <p>Contact us at <a href="mailto:Jimmybobcurnal@gmail.com" style="color: #005dd1;">Jimmybobcurnal@gmail.com</a> to place your order or inquire about custom designs.</p>
+                <p>NovaLayer is your friendly neighborhood 3D printing service! We're passionate about making 3D printing accessible and affordable for everyone. Why spend $1000 on a 3D printer when you can get professional-quality prints starting at just $2?</p>
+                <p>We love what we do, and it shows in every print! While our collection focuses on the most popular and requested items, we're always excited to expand our offerings based on what you want to see. We also create amazing custom ID cards with your unique design (keeping everything school-appropriate, of course!).</p>
+                
+                <div class="filament-info">
+                    <h4>
+                        <span class="color-swatch"></span>
+                        Premium Black Filament
+                    </h4>
+                    <p>All our prints are made with high-quality black PLA filament, ensuring durability, smooth finish, and professional appearance. Black is versatile, sleek, and perfect for any design!</p>
+                </div>
+                
+                <p>Ready to get started? We'd love to hear from you! Contact us at <a href="mailto:Jimmybobcurnal@gmail.com" style="color: #005dd1;">Jimmybobcurnal@gmail.com</a> to place your order or chat about custom designs. We're here to help make your 3D printing dreams come true!</p>
             </div>
             <div class="col-lg-6">
                 <img src="https://media.tenor.com/AteWDUebhk4AAAAC/3dprint-3d-printing.gif" alt="3D Printing in action" class="img-fluid rounded-3 shadow">
@@ -341,11 +432,15 @@
             <!-- Product 1 -->
             <div class="col-md-4">
                 <div class="card">
+                    <div class="filament-badge">
+                        <span class="color-dot"></span>
+                        Black PLA
+                    </div>
                     <img src="https://dmssolutions.us/cdn/shop/files/DSC00600.jpg?v=1726360866" class="card-img-top" alt="Fidget Cube">
                     <div class="card-body">
-                        <h5 class="card-title">infinity Cube</h5>
+                        <h5 class="card-title">Infinity Cube</h5>
                         <div class="card-price">$2.00</div>
-                        <p class="card-text">A popular stress-relieving fidget toy with multiple interactive features.</p>
+                        <p class="card-text">A popular stress-relieving fidget toy with multiple interactive features. Perfect for keeping your hands busy!</p>
                         <a href="#" class="btn btn-primary w-100">Order Now</a>
                     </div>
                 </div>
@@ -353,11 +448,15 @@
             <!-- Product 2 -->
             <div class="col-md-4">
                 <div class="card">
+                    <div class="filament-badge">
+                        <span class="color-dot"></span>
+                        Black PLA
+                    </div>
                     <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS7fKRW4UMKFd4_E421S4KVtqVIxp46VDJ0ILO76D-9A5JPzfWW615G6rbZuA5shvGyK11bQ0U1K8m-b9yKlgswtL45-wDjGUQjrnahC5-g7rSqxCMrMtyX9KLpPYHbVOHKmkcCMg&usqp=CAc" class="card-img-top" alt="Phone Stand">
                     <div class="card-body">
                         <h5 class="card-title">Cone Fidget</h5>
                         <div class="card-price">$2.00</div>
-                        <p class="card-text">A two-part spiraly-cone fidget, great for stress relief.</p>
+                        <p class="card-text">A mesmerizing two-part spiraly-cone fidget, perfect for stress relief and endless fun!</p>
                         <a href="#" class="btn btn-primary w-100">Order Now</a>
                     </div>
                 </div>
@@ -365,11 +464,15 @@
             <!-- Product 3 -->
             <div class="col-md-4">
                 <div class="card">
+                    <div class="filament-badge">
+                        <span class="color-dot"></span>
+                        Black PLA
+                    </div>
                     <img src="/api/placeholder/400/250" class="card-img-top" alt="Custom ID Card">
                     <div class="card-body">
                         <h5 class="card-title">Custom ID Card</h5>
                         <div class="card-price">$5.00</div>
-                        <p class="card-text">Personalized ID cards with your design (school-appropriate content only).</p>
+                        <p class="card-text">Personalized ID cards with your unique design! Express yourself while keeping it school-appropriate.</p>
                         <a href="custom.html" class="btn btn-primary w-100">Order Now!</a>
                     </div>
                 </div>
@@ -380,27 +483,27 @@
     <!-- Team Section -->
     <section class="team">
         <div class="container">
-            <h2 class="section-title">Meet Our Team</h2>
+            <h2 class="section-title">Meet Our Amazing Team</h2>
             <div class="row">
                 <div class="col-md-4">
                     <div class="team-member">
                         <img src="https://parents.sbschools.org/genesis/sis/photos?type=student&studentID=30004820" alt="Om Sharma">
                         <h3>Om Sharma</h3>
-                        <p>3D Printing Specialist and makes prints for you guys</p>
+                        <p>3D Printing Specialist who brings your ideas to life with precision and care!</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
                         <img src="/api/placeholder/300/300" alt="Avi Metha">
                         <h3>Avi Metha</h3>
-                        <p>Absolute genius</p>
+                        <p>Creative genius and problem-solver extraordinaire!</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
                         <img src="/api/placeholder/300/300" alt="Aryan Gilhotra">
                         <h3>Aryan Gilhotra</h3>
-                        <p>Makes Prints</p>
+                        <p>Master printer who ensures every detail is perfect!</p>
                     </div>
                 </div>
             </div>
@@ -413,7 +516,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <h5>NovaLayer</h5>
-                    <p>Making 3D printing accessible and affordable for everyone.</p>
+                    <p>Making 3D printing accessible, affordable, and exciting for everyone in our community!</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
@@ -426,12 +529,13 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>Contact</h5>
+                    <h5>Get In Touch</h5>
                     <p>Email: Jimmybobcurnal@gmail.com</p>
+                    <p>We'd love to hear from you!</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 NovaLayer. All rights reserved.</p>
+                <p>&copy; 2025 NovaLayer. Made with ❤️ for our amazing community!</p>
             </div>
         </div>
     </footer>
