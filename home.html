@@ -19,11 +19,11 @@
         html, body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+            font-family: 'Poppins', sans-serif;
         }
 
-        /* Navbar - Kept exactly the same */
+        /* Make navbar flush with top */
         .navbar {
             margin-top: 0;
             padding-top: 12px;
@@ -34,12 +34,12 @@
         
         body{
             margin-top: 0px;
-            background-color: #0a0a0a;
-            color: #f8f9fa;
+            background-color: #121212;
+            color: #f5f5f5;
         }
         
         .navbar {
-            background: linear-gradient(135deg, #005dd1, #00398a);
+            background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             padding: 12px 0;
         }
@@ -93,361 +93,241 @@
             font-weight: 600;
         }
 
-        /* Hero section - More professional */
+        /* Hero section */
         .hero {
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(30, 30, 30, 0.9)), 
-                        radial-gradient(ellipse at center, rgba(13, 110, 253, 0.1), transparent 70%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('/api/placeholder/1400/600') center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 60px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             background: linear-gradient(135deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
+            display: inline-block;
         }
 
         .hero p {
-            color: #b0b0b0;
-            font-size: 1.25rem;
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .welcome-message {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(0, 57, 138, 0.1));
+            border: 2px solid rgba(13, 110, 253, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
             max-width: 800px;
-            margin: 0 auto 50px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-
-        .hero-stat {
             text-align: center;
         }
 
-        .hero-stat .number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0d6efd;
-            display: block;
+        .welcome-message h3 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .hero-stat .label {
-            font-size: 1rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
+        .welcome-message p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 0;
         }
 
-        /* About Section - Professional styling */
-        .about {
-            padding: 100px 0;
-            background: linear-gradient(180deg, rgba(15, 15, 15, 1), rgba(25, 25, 25, 1));
+        .filament-info {
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(30, 30, 30, 0.9));
+            border-left: 5px solid #FFD700;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .filament-info h4 {
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filament-info .color-swatch {
+            width: 25px;
+            height: 25px;
+            background-color: #2c2c2c;
+            border: 2px solid #666;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background: linear-gradient(135deg, #d15b00, #a63900);
+            border: none;
+            padding: 15px 35px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(209, 91, 0, 0.4);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(209, 91, 0, 0.5);
+            background: linear-gradient(135deg, #e46400, #b94000);
+        }
+
+        /* Products section */
+        .products {
+            padding: 60px 0;
         }
 
         .section-title {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             text-align: center;
             color: #FFD700;
             position: relative;
         }
 
-        .section-title::after {
+        .section-title:after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             height: 4px;
             width: 80px;
-            background: linear-gradient(90deg, #0d6efd, #0056b3);
+            background: linear-gradient(to right, #005dd1, #00398a);
             border-radius: 2px;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.75rem;
-            color: #FFD700;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .about-text p {
-            color: #c0c0c0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 20px;
+        .card {
+            background-color: #1e1e1e;
+            border: none;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: rgba(20, 20, 20, 1);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, rgba(40, 40, 40, 0.8), rgba(30, 30, 30, 0.9));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
             position: relative;
-            overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #0d6efd, #0056b3);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
+        .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
-            border-color: rgba(13, 110, 253, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0d6efd, #0056b3);
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            background-color: #1e1e1e;
+            padding: 25px;
+        }
+
+        .card-title {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .card-text {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .filament-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            color: #fff;
+            padding: 5px 12px;
             border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #444;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
+            gap: 5px;
         }
 
-        .service-card h4 {
-            color: #FFD700;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            font-weight: 600;
+        .filament-badge .color-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #2c2c2c;
+            border: 1px solid #666;
+            border-radius: 50%;
         }
 
-        .service-card p {
-            color: #b0b0b0;
-            line-height: 1.6;
-        }
-
-        /* Team Section - Enhanced */
+        /* Team section */
         .team {
-            padding: 100px 0;
-            background: linear-gradient(180deg, rgba(25, 25, 25, 1), rgba(15, 15, 15, 1));
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            margin-top: 60px;
+            padding: 60px 0;
+            background-color: #191919;
+            border-radius: 30px;
+            margin: 0 20px 60px;
         }
 
         .team-member {
             text-align: center;
-            background: linear-gradient(135deg, rgba(40, 40, 40, 0.6), rgba(30, 30, 30, 0.8));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-member::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .team-member:hover::before {
-            opacity: 1;
-        }
-
-        .team-member:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(13, 110, 253, 0.3);
+            padding: 20px;
         }
 
         .team-member img {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #0d6efd;
-            box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3);
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 2;
+            border: 4px solid #005dd1;
+            box-shadow: 0 5px 15px rgba(0, 93, 209, 0.3);
+            margin-bottom: 20px;
         }
 
         .team-member h3 {
             color: #FFD700;
             font-size: 1.5rem;
             margin-bottom: 10px;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-        }
-
-        .team-member .role {
-            color: #0d6efd;
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
         }
 
         .team-member p {
-            color: #b0b0b0;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
+            color: #e0e0e0;
         }
 
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #0d6efd, #0056b3);
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-cta {
-            background: #ffffff;
-            color: #0d6efd;
-            padding: 15px 35px;
-            font-weight: 600;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .btn-cta:hover {
-            background: transparent;
-            color: #ffffff;
-            border-color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer - Enhanced */
+        /* Footer */
         footer {
-            background: #000000;
-            padding: 60px 0 30px;
-            color: #888;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            background-color: #0c0c0c;
+            padding: 40px 0 20px;
+            color: #a0a0a0;
         }
 
         footer h5 {
             color: #FFD700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 600;
-            font-size: 1.25rem;
         }
 
         footer ul {
@@ -456,59 +336,34 @@
         }
 
         footer ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         footer a {
-            color: #888;
+            color: #a0a0a0;
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
         footer a:hover {
-            color: #ffffff;
+            color: #e0e0e0;
+            text-decoration: none;
         }
 
         .copyright {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #333;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
             text-align: center;
-            color: #666;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
-                gap: 30px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .services-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2.25rem;
-            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar - Kept exactly the same -->
    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
                     <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
@@ -535,63 +390,79 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Professional 3D Printing Solutions</h1>
-            <p>NovaLayer delivers premium 3D printing services with precision, quality, and affordability. Transform your ideas into reality with our cutting-edge technology and expert craftsmanship.</p>
+            <h1>Welcome to NovaLayer! 🎉</h1>
+            <p>We're thrilled to have you here! We bring the magic of 3D printing directly to you without the hefty $1000 investment. Experience high-quality 3D prints starting at just $2. From creative fidget toys to practical utility items, we're here to make your ideas come to life!</p>
             
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="number">500+</span>
-                    <span class="label">Projects Completed</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="number">99%</span>
-                    <span class="label">Client Satisfaction</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="number">24h</span>
-                    <span class="label">Average Turnaround</span>
-                </div>
+            <div class="welcome-message">
+                <h3>🚀 Your 3D Printing Journey Starts Here!</h3>
+                <p>Whether you're a student, creator, or just someone who loves cool gadgets, we're excited to help you discover the amazing world of 3D printing. Our friendly team is ready to bring your favorite designs to life!</p>
             </div>
+<!--             <a href="index.html" class="btn btn-primary">Get Started</a> -->
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2 class="section-title">About NovaLayer</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Precision. Quality. Innovation.</h3>
-                    <p>NovaLayer is a professional 3D printing service dedicated to delivering exceptional results for businesses, creators, and innovators. Our state-of-the-art equipment and experienced team ensure every project meets the highest standards of quality and precision.</p>
-                    <p>We specialize in rapid prototyping, custom manufacturing, and educational projects, making advanced 3D printing technology accessible and affordable for everyone.</p>
-                    <p>Contact us at <a href="mailto:Jimmybobcurnal@gmail.com" style="color: #0d6efd;">Jimmybobcurnal@gmail.com</a> to discuss your project requirements and receive a personalized quote.</p>
+    <section class="about container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title">About NovaLayer</h2>
+                <p>NovaLayer is your friendly neighborhood 3D printing service! We're passionate about making 3D printing accessible and affordable for everyone. Why spend $1000 on a 3D printer when you can get professional-quality prints starting at just $2?</p>
+                <p>We love what we do, and it shows in every print! While our collection focuses on the most popular and requested items, we're always excited to expand our offerings based on what you want to see. We also create amazing custom ID cards with your unique design (keeping everything school-appropriate, of course!).</p>
+                
+                <div class="filament-info">
+                    <h4>
+                        <span class="color-swatch"></span>
+                        Premium Grey, White,Green Filament
+                    </h4>
+                    <p>All our prints are made with high-quality gray,green and white PLA filament, ensuring durability, smooth finish, and professional appearance. Black is versatile, sleek, and perfect for any design!</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://media.tenor.com/AteWDUebhk4AAAAC/3dprint-3d-printing.gif" alt="Professional 3D Printing Process">
-                </div>
+                
+                <p>Ready to get started? We'd love to hear from you! Contact us at <a href="mailto:Jimmybobcurnal@gmail.com" style="color: #005dd1;">Jimmybobcurnal@gmail.com</a> to place your order or chat about custom designs. We're here to help make your 3D printing dreams come true!</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://media.tenor.com/AteWDUebhk4AAAAC/3dprint-3d-printing.gif" alt="3D Printing in action" class="img-fluid rounded-3 shadow">
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h4>Rapid Prototyping</h4>
-                    <p>Quick turnaround times for concept validation and design iteration. Perfect for bringing your ideas to life fast.</p>
+    <!-- Products Section -->
+    <section class="products container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://dmssolutions.us/cdn/shop/files/DSC00600.jpg?v=1726360866" class="card-img-top" alt="Fidget Cube">
+                    <div class="card-body">
+                        <h5 class="card-title">Infinity Cube</h5>
+                        <div class="card-price">$2.00</div>
+                        <p class="card-text">A popular stress-relieving fidget toy with multiple interactive features. Perfect for keeping your hands busy!</p>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h4>Custom Manufacturing</h4>
-                    <p>Precision manufacturing for functional parts, tools, and specialized components with professional-grade materials.</p>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS7fKRW4UMKFd4_E421S4KVtqVIxp46VDJ0ILO76D-9A5JPzfWW615G6rbZuA5shvGyK11bQ0U1K8m-b9yKlgswtL45-wDjGUQjrnahC5-g7rSqxCMrMtyX9KLpPYHbVOHKmkcCMg&usqp=CAc" class="card-img-top" alt="Phone Stand">
+                    <div class="card-body">
+                        <h5 class="card-title">Cone Fidget</h5>
+                        <div class="card-price">$2.00</div>
+                        <p class="card-text">A mesmerizing two-part spiraly-cone fidget, perfect for stress relief and endless fun!</p>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h4>Creative Projects</h4>
-                    <p>From artistic sculptures to unique gifts, we bring your creative visions to life with attention to detail.</p>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/api/placeholder/400/250" class="card-img-top" alt="Custom ID Card">
+                    <div class="card-body">
+                        <h5 class="card-title">Custom ID Card</h5>
+                        <div class="card-price">$5.00</div>
+                        <p class="card-text">Personalized ID cards with your unique design! Express yourself while keeping it school-appropriate.</p>
+                        <a href="custom.html" class="btn btn-primary w-100">Order Now!</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -600,73 +471,59 @@
     <!-- Team Section -->
     <section class="team">
         <div class="container">
-            <h2 class="section-title">Meet Our Expert Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://parents.sbschools.org/genesis/sis/photos?type=student&studentID=30004820" alt="Om Sharma">
-                    <h3>Om Sharma</h3>
-                    <div class="role">Lead 3D Printing Specialist</div>
-                    <p>Expert in precision manufacturing and quality control, ensuring every project meets professional standards.</p>
+            <h2 class="section-title">Meet Our Amazing Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://parents.sbschools.org/genesis/sis/photos?type=student&studentID=30004820" alt="Om Sharma">
+                        <h3>Om Sharma</h3>
+                        <p>3D Printing Specialist who brings your ideas to life with precision and care!</p>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="/api/placeholder/300/300" alt="Avi Metha">
-                    <h3>Avi Metha</h3>
-                    <div class="role">Design & Innovation Director</div>
-                    <p>Creative problem-solver specializing in design optimization and innovative manufacturing solutions.</p>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Avi Metha">
+                        <h3>Avi Metha</h3>
+                        <p>Creative genius and problem-solver extraordinaire!</p>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="/api/placeholder/300/300" alt="Aryan Gilhotra">
-                    <h3>Aryan Gilhotra</h3>
-                    <div class="role">Production Manager</div>
-                    <p>Operations expert ensuring efficient workflows and consistent quality across all production processes.</p>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="/api/placeholder/300/300" alt="Aryan Gilhotra">
+                        <h3>Aryan Gilhotra</h3>
+                        <p>Master printer who ensures every detail is perfect!</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Get in touch with our team to discuss your 3D printing needs and receive a professional consultation.</p>
-            <a href="index.html" class="btn-cta">Get Started Today</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div>
+            <div class="row">
+                <div class="col-md-4">
                     <h5>NovaLayer</h5>
-                    <p>Professional 3D printing services delivering quality, precision, and innovation for every project.</p>
+                    <p>Making 3D printing accessible, affordable, and exciting for everyone in our community!</p>
                 </div>
-                <div>
-                    <h5>Services</h5>
-                    <ul>
-                        <li><a href="fidget.html">Fidgets & Toys</a></li>
-                        <li><a href="utility.html">Utility Items</a></li>
-                        <li><a href="other.html">Custom Projects</a></li>
-                        <li><a href="custom.html">Design Services</a></li>
-                    </ul>
-                </div>
-                <div>
+                <div class="col-md-4">
                     <h5>Quick Links</h5>
                     <ul>
                         <li><a href="home.html">Home</a></li>
                         <li><a href="index.html">Order</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="fidget.html">Fidgets</a></li>
+                        <li><a href="utility.html">Utility</a></li>
+                        <li><a href="other.html">Other</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h5>Contact</h5>
+                <div class="col-md-4">
+                    <h5>Get In Touch</h5>
                     <p>Email: Jimmybobcurnal@gmail.com</p>
-                    <p>Professional consultation available</p>
+                    <p>We'd love to hear from you!</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 NovaLayer. Professional 3D Printing Solutions.</p>
+                <p>&copy; 2025 NovaLayer. Made with ❤️ for our amazing community!</p>
             </div>
         </div>
     </footer>
