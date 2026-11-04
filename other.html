@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Novalayer - Other Products</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='6' fill='%230D6EFD'/%3E%3Cpath d='M8 16L16 8L24 16L16 24L8 16Z' fill='white'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%230D6EFD'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='180' height='180' rx='27' fill='%230D6EFD'/%3E%3Cpath d='M36 90L90 36L144 90L90 144L36 90Z' fill='white'/%3E%3Ccircle cx='90' cy='90' r='18' fill='%230D6EFD'/%3E%3C/svg%3E">
+    <style>       
+        /* Reset all margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Make navbar flush with top */
+        .navbar {
+            margin-top: 0;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            position: relative;
+            top: 0;
+        }
+        
+        body{
+            margin-top: 0px;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #005dd1, #00398a); /* Blue gradient */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            transition: all 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('/api/placeholder/1400/600') center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background: linear-gradient(135deg, #d15b00, #a63900);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(209, 91, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(209, 91, 0, 0.5);
+            background: linear-gradient(135deg, #e46400, #b94000);
+        }
+
+        /* Products section */
+        .products {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #FFD700;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 80px;
+            background: linear-gradient(to right, #005dd1, #00398a);
+            border-radius: 2px;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            background-color: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-title {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .card-text {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .stock-info {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0c0c0c;
+            padding: 40px 0 20px;
+            color: #a0a0a0;
+            margin-top: 60px; 
+        }
+
+        footer h5 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
+        }
+        
+        .category-section {
+            margin-bottom: 60px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#0D6EFD"/>
+                    <path d="M10 20L20 10L30 20L20 30L10 20Z" fill="white"/>
+                    <circle cx="20" cy="20" r="5" fill="#0D6EFD"/>
+                </svg>
+             Novalayer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                 <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="fidget.html">Fidgets</a></li>
+          <li class="nav-item"><a class="nav-link" href="utility.html">Utility</a></li>
+          <li class="nav-item"> <a class="nav-link active" href="other.html">Other</a></li>
+          <li class="nav-item"><a class="nav-link \" href="index.html">Order</a></li>
+          <li class="nav-item"> <a class="nav-link" href="custom.html">Custom</a></li>
+        </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Other Cool Products</h1>
+            <p>Discover our collection of unique 3D printed products that don't fit into other categories. From decorative items to novelty gifts, you'll find something special here!</p>
+        </div>
+    </section>
+
+    <!-- Decorative Items Section -->
+    <section class="products container category-section">
+        <h2 class="section-title">Decorative Items</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/US80bb5c662315de/design/2024-08-11_750c66da2ec37.jpg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Dragon">
+                    <div class="card-body">
+                        <h5 class="card-title">Dragon</h5>
+                        <div class="card-price">$4.00</div>
+                        <p class="card-text">A mythical dragon toy that spins and has sharp scales.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/USaaa6c0aa331f26/design/2024-11-27_3f23298e8432e.jpg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Sword">
+                    <div class="card-body">
+                        <h5 class="card-title">Sword</h5>
+                        <div class="card-price">$9.00</div>
+                        <p class="card-text">A miniature sword for collectors or play.</p>
+                        <p class="stock-info">2 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://makerworld.bblmw.com/makerworld/model/USf6bd051baf6b2f/design/2023-12-23_051gmonotbji.jpg?x-oss-process=image/resize,w_1000/format,webp" class="card-img-top" alt="Octopus">
+                    <div class="card-body">
+                        <h5 class="card-title">Dinosaur</h5>
+                        <div class="card-price">$3.00</div>
+                        <p class="card-text">A cute Dinosaur toy to play with when bored.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Items Section -->
+    <section class="products container category-section">
+        <h2 class="section-title">Fun Items</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://cdn.thingiverse.com/assets/ba/d3/63/68/35/large_display_DSC01230_copia.jpg" class="card-img-top" alt="Shark">
+                    <div class="card-body">
+                        <h5 class="card-title">Shark</h5>
+                        <div class="card-price">$2.00</div>
+                        <p class="card-text">A shark shaped toy for ocean lovers.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.cults3d.com/_KFStBj3sYw_icYjm-9-5xaSwiQ=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/27365276/illustration-file/ef91740f-789b-483f-91e6-d8ca248dd828/IMG_3868.jpg" class="card-img-top" alt="The Rocktopus">
+                    <div class="card-body">
+                        <h5 class="card-title">The Rocktopus</h5>
+                        <div class="card-price">$2.00</div>
+                        <p class="card-text">The rock and octopus combo toy - a fan favorite!</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://dl2.myminifactory.com/object-assets/637a79312e367/images/720X720-img-3947.jpg" class="card-img-top" alt="Mini Tic Tac Toe">
+                    <div class="card-body">
+                        <h5 class="card-title">Mini Tic Tac Toe</h5>
+                        <div class="card-price">$4.00</div>
+                        <p class="card-text">A small portable Tic Tac Toe game for on-the-go fun.</p>
+                        <p class="stock-info">5 in stock</p>
+                        <a href="index.html" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>NovaLayer</h5>
+                    <p>Making 3D printing accessible and affordable for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="index.html">Order</a></li>
+                        <li><a href="fidget.html">Fidgets</a></li>
+                        <li><a href="utility.html">Utility</a></li>
+                        <li><a href="other.html">Other</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: Jimmybobcurnal@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NovaLayer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
