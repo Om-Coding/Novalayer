@@ -18,7 +18,8 @@ import {
 import { defaultProducts } from "./data/products.js";
 import { supabase } from "./lib/supabase.js";
 
-const categories = ["Everything", "Fidgets", "Desk & utility", "Custom"];
+const categories = ["Everything", "Collectibles", "Accessories", "Home & desk", "Toys"];
+const supportedProductIds = new Set(defaultProducts.map((product) => product.id));
 
 function ProductArtwork({ variant, className = "" }) {
   return (
@@ -107,6 +108,74 @@ function ProductArtwork({ variant, className = "" }) {
             <path d="M72 48h14" stroke="#8A734B" strokeWidth="3" strokeLinecap="round" />
           </g>
         )}
+        {variant === "miniature" && (
+          <g className="art-object">
+            <path d="m88 143 11-27 21-9 22 9 10 27-16 13h-34l-14-13Z" fill="#795B47" />
+            <circle cx="120" cy="72" r="25" fill="#F2C291" />
+            <path d="M96 69c2-21 12-33 27-33 15 0 25 12 26 32-8-7-17-12-27-12-10 0-19 5-26 13Z" fill="#49352F" />
+            <path d="m99 118 21 15 21-15 10 25-16 14h-31l-15-14 10-25Z" fill="#6F8F78" />
+            <path d="m92 147 28 8 28-8 9 15H83l9-15Z" fill="#D9A15F" />
+            <circle cx="111" cy="74" r="2" fill="#45362E" />
+            <circle cx="130" cy="74" r="2" fill="#45362E" />
+            <path d="M114 87c4 3 8 3 12 0" stroke="#B66F57" strokeWidth="2" strokeLinecap="round" />
+          </g>
+        )}
+        {variant === "phonecase" && (
+          <g className="art-object">
+            <rect x="76" y="27" width="88" height="148" rx="19" fill="#718BA8" stroke="#405B79" strokeWidth="5" />
+            <rect x="83" y="35" width="74" height="132" rx="14" fill="#AFC6D6" />
+            <rect x="91" y="45" width="38" height="38" rx="11" fill="#5D7690" />
+            <circle cx="102" cy="57" r="6" fill="#243D52" />
+            <circle cx="119" cy="57" r="6" fill="#243D52" />
+            <circle cx="102" cy="73" r="6" fill="#243D52" />
+            <circle cx="120" cy="73" r="4" fill="#F8D38D" />
+            <path d="M101 120c8-17 30-22 44-8" stroke="#F8F2E6" strokeWidth="5" strokeLinecap="round" />
+            <path d="M105 139c12 7 23 7 34 0" stroke="#769B8D" strokeWidth="5" strokeLinecap="round" />
+            <rect x="106" y="31" width="27" height="4" rx="2" fill="#DCE8EB" />
+          </g>
+        )}
+        {variant === "vase" && (
+          <g className="art-object">
+            <path d="M105 35h30v30c0 12 30 26 30 58 0 27-20 42-45 42s-45-15-45-42c0-32 30-46 30-58V35Z" fill="#E7906D" />
+            <path d="M105 35h30v30c0 12 30 26 30 58 0 27-20 42-45 42V35Z" fill="#CD7056" />
+            <ellipse cx="120" cy="37" rx="17" ry="6" fill="#B75E4A" />
+            <ellipse cx="120" cy="39" rx="12" ry="3" fill="#F5D6B2" />
+            <path d="M80 119c19 10 61 10 80 0M87 143c15 7 50 7 66 0" stroke="#FFD4B4" strokeWidth="4" opacity=".8" />
+            <path d="M120 37V20m0 7c-12-13-25-10-25-2 0 7 14 9 25 2Zm0 1c11-15 26-11 25-3-1 7-14 10-25 3Z" stroke="#5B8C69" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+        )}
+        {variant === "keychain" && (
+          <g className="art-object">
+            <ellipse cx="101" cy="61" rx="27" ry="23" stroke="#B5BAC0" strokeWidth="10" />
+            <path d="m120 77 19 14" stroke="#B5BAC0" strokeWidth="9" strokeLinecap="round" />
+            <rect x="113" y="85" width="60" height="58" rx="16" transform="rotate(13 113 85)" fill="#F1BD54" />
+            <path d="m132 108 7 8 16-18" stroke="#FFF7E5" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="143" cy="115" r="48" stroke="#EEC45F" strokeWidth="2" opacity=".25" />
+          </g>
+        )}
+        {variant === "toycar" && (
+          <g className="art-object">
+            <path d="M50 119h140l-8 27H57l-7-27Z" fill="#E7664E" />
+            <path d="m72 118 19-33h48l28 33H72Z" fill="#F18968" />
+            <path d="m98 91-14 25h34V91H98Zm26 0v25h34l-21-25h-13Z" fill="#C5E1E2" />
+            <path d="M56 119h127v12H56z" fill="#D84E42" />
+            <circle cx="82" cy="146" r="17" fill="#374443" />
+            <circle cx="82" cy="146" r="7" fill="#E5D6B8" />
+            <circle cx="157" cy="146" r="17" fill="#374443" />
+            <circle cx="157" cy="146" r="7" fill="#E5D6B8" />
+            <path d="M57 125h12m107 0h8" stroke="#FFE28A" strokeWidth="5" strokeLinecap="round" />
+          </g>
+        )}
+        {variant === "toolholder" && (
+          <g className="art-object">
+            <path d="M68 79h104l-9 82H77l-9-82Z" fill="#67927F" />
+            <path d="M68 79h104l-4 19H72l-4-19Z" fill="#8DB6A0" />
+            <path d="M83 80V43c0-8 13-8 13 0v37m20 0V30c0-8 13-8 13 0v50m21 0V48c0-8 13-8 13 0v32" stroke="#E7BA66" strokeWidth="9" strokeLinecap="round" />
+            <path d="M87 48v19m40-30v29m28 0v14" stroke="#FFF1C7" strokeWidth="3" strokeLinecap="round" />
+            <rect x="93" y="105" width="54" height="9" rx="4.5" fill="#D3E5D9" opacity=".8" />
+            <ellipse cx="120" cy="162" rx="53" ry="8" fill="#426F5D" opacity=".27" />
+          </g>
+        )}
       </svg>
     </div>
   );
@@ -147,12 +216,41 @@ function ProductCard({ product, onAdd }) {
   );
 }
 
+function readSavedBag() {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem("novalayer-bag") ?? "[]");
+    if (!Array.isArray(saved)) return [];
+    const validProducts = new Set(defaultProducts.map((product) => product.id));
+    const quantities = new Map();
+    for (const item of saved) {
+      if (
+        item &&
+        typeof item.id === "string" &&
+        validProducts.has(item.id) &&
+        Number.isSafeInteger(item.quantity) &&
+        item.quantity > 0 &&
+        item.quantity <= 10
+      ) {
+        quantities.set(
+          item.id,
+          Math.min((quantities.get(item.id) ?? 0) + item.quantity, 10),
+        );
+      }
+    }
+    return [...quantities.entries()]
+      .slice(0, 20)
+      .map(([id, quantity]) => ({ id, quantity }));
+  } catch {
+    return [];
+  }
+}
+
 function App() {
   const [products, setProducts] = useState(defaultProducts);
   const [catalogStatus, setCatalogStatus] = useState(supabase ? "loading" : "preview");
   const [category, setCategory] = useState("Everything");
   const [search, setSearch] = useState("");
-  const [bag, setBag] = useState([]);
+  const [bag, setBag] = useState(readSavedBag);
   const [bagOpen, setBagOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -162,6 +260,29 @@ function App() {
   const [saving, setSaving] = useState(false);
   const [notice, setNotice] = useState("");
   const [orderComplete, setOrderComplete] = useState(false);
+
+  useEffect(() => {
+    window.localStorage.setItem("novalayer-bag", JSON.stringify(bag));
+  }, [bag]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const checkoutResult = params.get("checkout");
+    if (checkoutResult === "success") {
+      setOrderComplete(true);
+      setBag([]);
+    } else if (checkoutResult === "cancel") {
+      setNotice("Checkout was cancelled. Your bag is still here if you'd like to try again.");
+    }
+
+    if (checkoutResult) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.hash}`,
+      );
+    }
+  }, []);
 
   useEffect(() => {
     if (!supabase) return;
@@ -179,17 +300,24 @@ function App() {
           setNotice(`Couldn't load the live catalog: ${error.message}`);
           return;
         }
-        if (data?.length) {
+        const supportedProducts = data?.filter((product) =>
+          supportedProductIds.has(product.id),
+        ) ?? [];
+        if (supportedProducts.length) {
           setCatalogStatus("live");
           setProducts(
-            data.map((product) => ({
+            supportedProducts.map((product) => ({
               ...product,
               priceCents: product.price_cents,
             })),
           );
         } else {
-          setCatalogStatus("preview");
-          setNotice("No active products found in Supabase yet. Showing the sample catalog.");
+          setCatalogStatus(data?.length ? "schema" : "preview");
+          setNotice(
+            data?.length
+              ? "The Supabase catalog needs updating. Run supabase/schema.sql to load the six products and prices."
+              : "No active products found in Supabase. Run supabase/schema.sql to seed the catalog. Showing the sample catalog.",
+          );
         }
       });
 
@@ -227,15 +355,27 @@ function App() {
     });
   }, [category, products, search]);
 
-  const bagCount = bag.reduce((total, item) => total + item.quantity, 0);
-  const subtotalCents = bag.reduce(
+  const bagProducts = bag.flatMap((item) => {
+    const product = products.find((candidate) => candidate.id === item.id);
+    return product ? [{ ...product, quantity: item.quantity }] : [];
+  });
+  const bagCount = bagProducts.reduce((total, item) => total + item.quantity, 0);
+  const subtotalCents = bagProducts.reduce(
     (total, item) => total + item.priceCents * item.quantity,
     0,
   );
 
   function addToBag(product) {
+    const existing = bag.find((item) => item.id === product.id);
+    if (existing?.quantity >= 10) {
+      setNotice(`${product.name} is limited to 10 per order.`);
+      return;
+    }
+    if (!existing && bag.length >= 20) {
+      setNotice("Your bag is full. Checkout or remove an item to continue.");
+      return;
+    }
     setBag((items) => {
-      const existing = items.find((item) => item.id === product.id);
       if (existing) {
         return items.map((item) =>
           item.id === product.id
@@ -243,7 +383,7 @@ function App() {
             : item,
         );
       }
-      return [...items, { ...product, quantity: 1 }];
+      return [...items, { id: product.id, quantity: 1 }];
     });
     setNotice(`${product.name} added to your bag.`);
   }
@@ -260,69 +400,83 @@ function App() {
     );
   }
 
-  function requestCustomPrint() {
-    const customRequest = {
-      id: "custom-request",
-      name: "Custom print request",
-      category: "Custom",
-      description: "Tell us what you have in mind at checkout.",
-      priceCents: 0,
-      art: "id",
-    };
-    addToBag(customRequest);
-    setBagOpen(true);
+  function browseProducts() {
+    setCategory("Everything");
+    setSearch("");
     document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
   }
 
   async function submitOrder(event) {
     event.preventDefault();
-    if (!customerName.trim() || !contact.trim()) {
+    if (!customerName.trim() || !contact.trim() || bagProducts.length === 0) {
       setNotice("Add your name and a way to reach you before sending.");
       return;
     }
     if (!supabase) {
       setNotice(
-        "Connect Supabase to send order requests. Add the project URL and anon key to .env.local.",
+        "Connect Supabase to take payments. Add the project URL and anon key to .env.local.",
       );
       return;
     }
 
     setSaving(true);
     setNotice("");
-    const { error } = await supabase.from("orders").insert({
-      customer_name: customerName.trim(),
-      contact: contact.trim(),
-      note: note.trim(),
-      order_items: bag.map(({ id, name, quantity, priceCents }) => ({
-        product_id: id,
-        name,
-        quantity,
-        price_cents: priceCents,
-      })),
-      subtotal_cents: subtotalCents,
-    });
-    setSaving(false);
+    try {
+      const { data, error } = await supabase.functions.invoke(
+        "create-checkout-session",
+        {
+          body: {
+            customer_name: customerName.trim(),
+            contact: contact.trim(),
+            note: note.trim(),
+            items: bagProducts.map(({ id, quantity }) => ({
+              product_id: id,
+              quantity,
+            })),
+          },
+        },
+      );
+      if (error) {
+        let message = error.message;
+        if (error.context && typeof error.context.json === "function") {
+          try {
+            const details = await error.context.json();
+            if (typeof details?.error === "string") message = details.error;
+          } catch {
+            message = error.message;
+          }
+        }
+        setNotice(`Couldn't start checkout: ${message}`);
+        return;
+      }
 
-    if (error) {
-      setNotice(`Your request wasn't sent: ${error.message}`);
-      return;
+      const checkoutUrl = new URL(data?.url);
+      if (
+        checkoutUrl.protocol !== "https:" ||
+        checkoutUrl.hostname !== "checkout.stripe.com"
+      ) {
+        setNotice("Checkout returned an invalid payment link. Please try again.");
+        return;
+      }
+      setCheckoutOpen(false);
+      window.location.assign(checkoutUrl.href);
+    } catch (error) {
+      setNotice(
+        `Couldn't start checkout: ${
+          error instanceof Error ? error.message : "Please try again."
+        }`,
+      );
+    } finally {
+      setSaving(false);
     }
-
-    setCheckoutOpen(false);
-    setBagOpen(false);
-    setBag([]);
-    setCustomerName("");
-    setContact("");
-    setNote("");
-    setOrderComplete(true);
   }
 
   return (
     <div className="site-shell">
       <div className="announcement">
         <Sparkles size={14} />
-        <span>Small prints. Big ideas. Starting at $1.</span>
-        <a href="#shop">Meet your new favorite fidget <ArrowRight size={13} /></a>
+        <span>Little 3D-printed things, starting at $3.</span>
+        <a href="#shop">Find a favorite <ArrowRight size={13} /></a>
       </div>
 
       <header className="site-header">
@@ -332,9 +486,9 @@ function App() {
         </a>
         <nav className={`main-nav ${mobileMenuOpen ? "is-open" : ""}`}>
           <a href="#shop" onClick={() => setMobileMenuOpen(false)}>Shop all</a>
-          <a href="#shop" onClick={() => { setCategory("Fidgets"); setMobileMenuOpen(false); }}>Fidgets</a>
+          <a href="#shop" onClick={() => { setCategory("Collectibles"); setMobileMenuOpen(false); }}>Collectibles</a>
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>Our little workshop</a>
-          <a href="#custom" onClick={() => setMobileMenuOpen(false)}>Custom prints</a>
+          <a href="#custom" onClick={() => setMobileMenuOpen(false)}>Personalized gifts</a>
         </nav>
         <div className="header-actions">
           <button
@@ -365,8 +519,8 @@ function App() {
             <div className="hero-kicker"><span /> Made to make you smile</div>
             <h1>Little things.<br /><span>Big happy.</span></h1>
             <p className="hero-description">
-              Clever little 3D prints for busy hands, happier desks, and ideas
-              that deserve to exist. Made with care, one layer at a time.
+              Little figures, playful accessories, and useful prints for your
+              space. Made with care, one layer at a time.
             </p>
             <div className="hero-actions">
               <a className="button button-dark" href="#shop">Find your thing <ArrowRight size={17} /></a>
@@ -382,9 +536,9 @@ function App() {
           <div className="hero-artboard">
             <div className="hero-sun" />
             <div className="hero-note note-top"><Sparkles size={15} /> Made one layer at a time</div>
-            <ProductArtwork variant="cube" className="hero-cube" />
-            <ProductArtwork variant="hex" className="hero-hex" />
-            <ProductArtwork variant="ring" className="hero-ring" />
+            <ProductArtwork variant="vase" className="hero-cube" />
+            <ProductArtwork variant="miniature" className="hero-hex" />
+            <ProductArtwork variant="keychain" className="hero-ring" />
             <div className="hero-sticker"><span>GOOD<br />VIBES<br />ONLY</span><span>✳</span></div>
             <div className="hero-note note-bottom"><span className="note-dot" /> Tiny prints, ready for big adventures</div>
             <div className="hero-scribble" aria-hidden="true">✳</div>
@@ -394,7 +548,7 @@ function App() {
         <section className="value-strip" aria-label="Shop benefits">
           <div><span className="value-icon"><PackageCheck size={18} /></span><span><strong>Printed with care</strong><small>Small batches, extra love</small></span></div>
           <div><span className="value-icon"><Sparkles size={18} /></span><span><strong>Playfully practical</strong><small>Useful things, made fun</small></span></div>
-          <div><span className="value-icon"><Check size={18} /></span><span><strong>Easy as can be</strong><small>No account, no fuss</small></span></div>
+          <div><span className="value-icon"><Check size={18} /></span><span><strong>Secure checkout</strong><small>Pay safely with Stripe</small></span></div>
         </section>
 
         <section className="shop-section section-wrap" id="shop">
@@ -402,9 +556,9 @@ function App() {
             <div>
               <p className="section-eyebrow">The little shop</p>
               <h2>Good things, <span>made layer by layer.</span></h2>
-              <p className="section-intro">Find a favorite, add it to your bag, and we’ll make it just for you.</p>
+              <p className="section-intro">Find a favorite, add it to your bag, and check out securely with Stripe.</p>
             </div>
-            <div className="catalog-note"><span className="note-dot" /> {catalogStatus === "loading" ? "Loading the workshop catalog" : catalogStatus === "live" ? "Live from our little workshop" : catalogStatus === "error" ? "Sample catalog · connection issue" : "A little preview of the shop"}</div>
+            <div className="catalog-note"><span className="note-dot" /> {catalogStatus === "loading" ? "Loading the workshop catalog" : catalogStatus === "live" ? "Live from our little workshop" : catalogStatus === "error" ? "Sample catalog · connection issue" : catalogStatus === "schema" ? "Sample catalog · update Supabase schema" : "A little preview of the shop"}</div>
           </div>
           <div className="shop-tools">
             <div className="category-list" role="group" aria-label="Filter products by category">
@@ -454,7 +608,7 @@ function App() {
           )}
           <div className="browse-bottom">
             <span>More fun is always in the works.</span>
-            <button type="button" className="text-button" onClick={requestCustomPrint}>Dream up a custom print <ArrowUpRight size={16} /></button>
+            <button type="button" className="text-button" onClick={browseProducts}>Find a personalized gift <ArrowUpRight size={16} /></button>
           </div>
         </section>
 
@@ -462,15 +616,15 @@ function App() {
           <div className="custom-art">
             <div className="custom-orbit orbit-one" />
             <div className="custom-orbit orbit-two" />
-            <ProductArtwork variant="id" />
+            <ProductArtwork variant="phonecase" />
             <span className="custom-sparkle sparkle-one">✳</span>
             <span className="custom-sparkle sparkle-two">✦</span>
           </div>
           <div className="custom-copy">
             <p className="section-eyebrow">A little different?</p>
             <h2>Got an idea?<br /><span>Let’s make it real.</span></h2>
-            <p>Tell us what you’re imagining — a custom fidget, a desk buddy, or something totally your own. We’ll figure out the details together.</p>
-            <button className="button button-dark" type="button" onClick={requestCustomPrint}>Start a custom request <ArrowRight size={17} /></button>
+            <p>Looking for something with your own touch? Choose a phone case or keychain, then leave your design details in the checkout note.</p>
+            <button className="button button-dark" type="button" onClick={browseProducts}>Find something to personalize <ArrowRight size={17} /></button>
           </div>
           <span className="custom-tag">YOUR IDEA, OUR PRINTER ✳</span>
         </section>
@@ -483,9 +637,9 @@ function App() {
           <div className="about-copy">
             <p>We think 3D printing should be for everyone. So we make small, joyful, genuinely useful things without the big price tag or the big learning curve.</p>
             <div className="about-points">
-              <div><span>01</span><strong>Pick a little something</strong><small>Fidget toy, desk helper, or custom idea.</small></div>
+              <div><span>01</span><strong>Pick a little something</strong><small>Miniature, accessory, toy, or desk helper.</small></div>
               <div><span>02</span><strong>We print it with care</strong><small>Made to order, with thoughtful details.</small></div>
-              <div><span>03</span><strong>It’s on its way to you</strong><small>We’ll get in touch to confirm your order.</small></div>
+              <div><span>03</span><strong>It’s on its way to you</strong><small>Free U.S. shipping is included.</small></div>
             </div>
           </div>
         </section>
@@ -500,7 +654,7 @@ function App() {
       <footer className="site-footer">
         <a className="brand footer-brand" href="#top"><span className="brand-icon"><Cuboid size={20} /></span><span>nova<span>layer</span></span></a>
         <p>Made with curiosity, one layer at a time.</p>
-        <span className="footer-note">© {new Date().getFullYear()} Novalayer · No account needed to order</span>
+        <span className="footer-note">© {new Date().getFullYear()} Novalayer · Secure Stripe checkout · No account needed</span>
       </footer>
 
       {bagOpen && (
@@ -516,15 +670,15 @@ function App() {
             ) : (
               <>
                 <div className="bag-items">
-                  {bag.map((item) => (
+                  {bagProducts.map((item) => (
                     <div className="bag-item" key={item.id}>
                       <ProductArtwork variant={item.art} />
-                      <div className="bag-item-info"><strong>{item.name}</strong><span>{item.priceCents === 0 ? "Quote on request" : `$${(item.priceCents / 100).toFixed(2)}`}</span><div className="quantity-control"><button type="button" aria-label={`Remove one ${item.name}`} onClick={() => updateQuantity(item.id, -1)}><Minus size={13} /></button><span>{item.quantity}</span><button type="button" aria-label={`Add one ${item.name}`} onClick={() => updateQuantity(item.id, 1)}><Plus size={13} /></button></div></div>
-                      <strong className="bag-item-total">{item.priceCents === 0 ? "—" : `$${((item.priceCents * item.quantity) / 100).toFixed(2)}`}</strong>
+                      <div className="bag-item-info"><strong>{item.name}</strong><span>${(item.priceCents / 100).toFixed(2)} each</span><div className="quantity-control"><button type="button" aria-label={`Remove one ${item.name}`} onClick={() => updateQuantity(item.id, -1)}><Minus size={13} /></button><span>{item.quantity}</span><button type="button" aria-label={`Add one ${item.name}`} disabled={item.quantity >= 10} onClick={() => updateQuantity(item.id, 1)}><Plus size={13} /></button></div></div>
+                      <strong className="bag-item-total">${((item.priceCents * item.quantity) / 100).toFixed(2)}</strong>
                     </div>
                   ))}
                 </div>
-                <div className="bag-summary"><div><span>Subtotal</span><strong>${(subtotalCents / 100).toFixed(2)}</strong></div><p>We’ll confirm final details with you before making anything.</p><button className="button button-dark checkout-button" type="button" onClick={() => { setBagOpen(false); setNotice(""); setCheckoutOpen(true); }}>Send an order request <ArrowRight size={17} /></button></div>
+                <div className="bag-summary"><div><span>Subtotal</span><strong>${(subtotalCents / 100).toFixed(2)}</strong></div><p>Free U.S. shipping. Pay securely on Stripe Checkout.</p><button className="button button-dark checkout-button" type="button" onClick={() => { setBagOpen(false); setNotice(""); setCheckoutOpen(true); }}>Continue to checkout <ArrowRight size={17} /></button></div>
               </>
             )}
           </aside>
@@ -535,18 +689,18 @@ function App() {
         <div className="overlay" onMouseDown={(event) => { if (event.target === event.currentTarget && !saving) { setCheckoutOpen(false); setNotice(""); } }}>
           <section className="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
             <div className="panel-header">
-              <div><p className="section-eyebrow">No account, no fuss</p><h2 id="checkout-title">Let’s make it yours.</h2></div>
+              <div><p className="section-eyebrow">Secure Stripe checkout</p><h2 id="checkout-title">Almost yours.</h2></div>
               <button className="icon-button" type="button" aria-label="Close order form" disabled={saving} onClick={() => { setCheckoutOpen(false); setNotice(""); }}><X size={21} /></button>
             </div>
-            <p className="checkout-intro">Leave a name and a way to reach you. We’ll confirm your order and the details before we print.</p>
+            <p className="checkout-intro">Add your name and contact details, then Stripe will securely collect payment and your U.S. shipping address. Shipping is free; no account is needed.</p>
             <form className="checkout-form" onSubmit={submitOrder}>
               <label>Your name<input value={customerName} onChange={(event) => setCustomerName(event.target.value)} maxLength={100} required autoComplete="name" placeholder="What should we call you?" /></label>
-              <label>How can we reach you?<input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={200} required placeholder="Phone, email, or social handle" /></label>
+              <label>Contact details<input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={200} required placeholder="Email, phone, or social handle" /></label>
               <label>Anything we should know? <span className="optional-label">Optional</span><textarea value={note} onChange={(event) => setNote(event.target.value)} maxLength={1500} rows={3} placeholder="Color, custom details, questions..." /></label>
-              <div className="checkout-recap"><span>{bagCount} {bagCount === 1 ? "item" : "items"} · estimate</span><strong>${(subtotalCents / 100).toFixed(2)}</strong></div>
+              <div className="checkout-recap"><span>{bagCount} {bagCount === 1 ? "item" : "items"} · free U.S. shipping</span><strong>${(subtotalCents / 100).toFixed(2)}</strong></div>
               {notice && <p className="form-notice" role="alert">{notice}</p>}
-              <button className="button button-dark checkout-button" type="submit" disabled={saving}>{saving ? "Sending request..." : "Send order request"} {!saving && <ArrowRight size={17} />}</button>
-              <p className="privacy-note">This is an order request, not a payment. We’ll be in touch to confirm.</p>
+              <button className="button button-dark checkout-button" type="submit" disabled={saving}>{saving ? "Opening secure checkout..." : "Continue to secure payment"} {!saving && <ArrowRight size={17} />}</button>
+              <p className="privacy-note">Stripe handles your payment details securely. No account is needed.</p>
             </form>
           </section>
         </div>
@@ -556,9 +710,9 @@ function App() {
         <div className="overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) setOrderComplete(false); }}>
           <section className="success-panel" role="dialog" aria-modal="true" aria-labelledby="success-title">
             <span className="success-icon"><Check size={27} /></span>
-            <p className="section-eyebrow">It’s in our hands now</p>
-            <h2 id="success-title">Your request is on its way.</h2>
-            <p>Thanks for choosing a little something from Novalayer. We’ll reach out soon to confirm the details.</p>
+            <p className="section-eyebrow">Thanks for shopping small</p>
+            <h2 id="success-title">You’re all checked out.</h2>
+            <p>Stripe has returned you from checkout. We’re confirming the payment and order details now; the order will be marked paid only after Stripe confirms it.</p>
             <button className="button button-dark" type="button" onClick={() => setOrderComplete(false)}>Back to the good stuff <ArrowRight size={16} /></button>
           </section>
         </div>

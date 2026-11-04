@@ -736,6 +736,30 @@ textarea:focus-visible {
   border-radius: 10px;
 }
 
+.art-miniature {
+  background: linear-gradient(145deg, #f3eadc, #eadecc);
+}
+
+.art-phonecase {
+  background: linear-gradient(145deg, #e8eef2, #dce5eb);
+}
+
+.art-vase {
+  background: linear-gradient(145deg, #faeee4, #f2e0d2);
+}
+
+.art-keychain {
+  background: linear-gradient(145deg, #f8f0db, #eee4c9);
+}
+
+.art-toycar {
+  background: linear-gradient(145deg, #f9e9e3, #f2dcd3);
+}
+
+.art-toolholder {
+  background: linear-gradient(145deg, #e6f0e9, #d9e8dd);
+}
+
 .art-hex {
   background: linear-gradient(145deg, #f0eafa, #e5dcf4);
 }
