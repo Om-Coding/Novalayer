@@ -253,11 +253,18 @@ function App() {
   const [bag, setBag] = useState(readSavedBag);
   const [bagOpen, setBagOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [customRequestOpen, setCustomRequestOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [customerName, setCustomerName] = useState("");
   const [contact, setContact] = useState("");
   const [note, setNote] = useState("");
   const [saving, setSaving] = useState(false);
+  const [customRequestName, setCustomRequestName] = useState("");
+  const [customRequestContact, setCustomRequestContact] = useState("");
+  const [customIdea, setCustomIdea] = useState("");
+  const [customRequestSaving, setCustomRequestSaving] = useState(false);
+  const [customRequestNotice, setCustomRequestNotice] = useState("");
+  const [customRequestComplete, setCustomRequestComplete] = useState(false);
   const [notice, setNotice] = useState("");
   const [orderComplete, setOrderComplete] = useState(false);
 
@@ -328,10 +335,12 @@ function App() {
 
   useEffect(() => {
     function handleEscape(event) {
-      if (event.key === "Escape" && !saving) {
+      if (event.key === "Escape" && !saving && !customRequestSaving) {
         setBagOpen(false);
         setCheckoutOpen(false);
+        setCustomRequestOpen(false);
         setOrderComplete(false);
+        setCustomRequestComplete(false);
         setMobileMenuOpen(false);
         setNotice("");
       }
@@ -339,7 +348,7 @@ function App() {
 
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [saving]);
+  }, [customRequestSaving, saving]);
 
   const visibleProducts = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -404,6 +413,74 @@ function App() {
     setCategory("Everything");
     setSearch("");
     document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function openCustomRequest() {
+    setNotice("");
+    setCustomRequestNotice("");
+    setCustomRequestOpen(true);
+  }
+
+  async function submitCustomRequest(event) {
+    event.preventDefault();
+    const trimmedName = customRequestName.trim();
+    const trimmedContact = customRequestContact.trim();
+    const trimmedIdea = customIdea.trim();
+    if (!trimmedName || !trimmedContact || trimmedIdea.length < 10) {
+      setCustomRequestNotice("Add your name, a way to reach you, and a description of at least 10 characters.");
+      return;
+    }
+    if (!supabase) {
+      setCustomRequestNotice(
+        "Connect Supabase to send your idea. Add the project URL and anon key to .env.local.",
+      );
+      return;
+    }
+
+    setCustomRequestSaving(true);
+    setCustomRequestNotice("");
+    try {
+      const { data, error } = await supabase.functions.invoke(
+        "submit-custom-request",
+        {
+          body: {
+            customer_name: trimmedName,
+            contact: trimmedContact,
+            idea_description: trimmedIdea,
+          },
+        },
+      );
+      if (error) {
+        let message = error.message;
+        if (error.context && typeof error.context.json === "function") {
+          try {
+            const details = await error.context.json();
+            if (typeof details?.error === "string") message = details.error;
+          } catch {
+            message = error.message;
+          }
+        }
+        setCustomRequestNotice(`Couldn't send your idea: ${message}`);
+        return;
+      }
+      if (!data?.success) {
+        setCustomRequestNotice("We couldn't confirm your request was saved. Please try again.");
+        return;
+      }
+      setCustomRequestOpen(false);
+      setCustomRequestName("");
+      setCustomRequestContact("");
+      setCustomIdea("");
+      setCustomRequestComplete(true);
+    } catch (error) {
+      setCustomRequestNotice(
+        `Couldn't send your idea: ${
+          error instanceof Error ? error.message : "Please try again."
+        }`,
+      );
+    } finally {
+      setCustomRequestSaving(false);
+    }
   }
 
   async function submitOrder(event) {
@@ -586,7 +663,7 @@ function App() {
               <ChevronDown size={14} className="search-chevron" />
             </label>
           </div>
-          {notice && !bagOpen && !checkoutOpen && (
+          {notice && !bagOpen && !checkoutOpen && !customRequestOpen && (
             <div className="inline-notice" role="status">
               <span>{notice}</span>
               <button type="button" aria-label="Dismiss message" onClick={() => setNotice("")}><X size={16} /></button>
@@ -608,7 +685,7 @@ function App() {
           )}
           <div className="browse-bottom">
             <span>More fun is always in the works.</span>
-            <button type="button" className="text-button" onClick={browseProducts}>Find a personalized gift <ArrowUpRight size={16} /></button>
+            <button type="button" className="text-button" onClick={openCustomRequest}>Describe your custom idea <ArrowUpRight size={16} /></button>
           </div>
         </section>
 
@@ -623,8 +700,8 @@ function App() {
           <div className="custom-copy">
             <p className="section-eyebrow">A little different?</p>
             <h2>Got an idea?<br /><span>Let’s make it real.</span></h2>
-            <p>Looking for something with your own touch? Choose a phone case or keychain, then leave your design details in the checkout note.</p>
-            <button className="button button-dark" type="button" onClick={browseProducts}>Find something to personalize <ArrowRight size={17} /></button>
+            <p>Tell us what you’re imagining — the shape, size, colors, or what it should do. We’ll review your idea and get back to you about what’s possible.</p>
+            <button className="button button-dark" type="button" onClick={openCustomRequest}>Describe your idea <ArrowRight size={17} /></button>
           </div>
           <span className="custom-tag">YOUR IDEA, OUR PRINTER ✳</span>
         </section>
@@ -706,6 +783,94 @@ function App() {
         </div>
       )}
 
+      {customRequestOpen && (
+        <div
+          className="overlay"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget && !customRequestSaving) {
+              setCustomRequestOpen(false);
+              setCustomRequestNotice("");
+            }
+          }}
+        >
+          <section className="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="custom-request-title">
+            <div className="panel-header">
+              <div>
+                <p className="section-eyebrow">A one-of-a-kind idea</p>
+                <h2 id="custom-request-title">Tell us what you’re dreaming up.</h2>
+              </div>
+              <button
+                className="icon-button"
+                type="button"
+                aria-label="Close custom request"
+                disabled={customRequestSaving}
+                onClick={() => {
+                  setCustomRequestOpen(false);
+                  setCustomRequestNotice("");
+                }}
+              >
+                <X size={21} />
+              </button>
+            </div>
+            <p className="checkout-intro">
+              Describe the 3D print you have in mind. We’ll review it and get in
+              touch to talk through the details and a price. No payment or
+              account needed to ask.
+            </p>
+            <form className="checkout-form" onSubmit={submitCustomRequest}>
+              <label>
+                Your name
+                <input
+                  value={customRequestName}
+                  onChange={(event) => setCustomRequestName(event.target.value)}
+                  maxLength={100}
+                  required
+                  autoComplete="name"
+                  placeholder="What should we call you?"
+                />
+              </label>
+              <label>
+                How can we reach you?
+                <input
+                  value={customRequestContact}
+                  onChange={(event) => setCustomRequestContact(event.target.value)}
+                  maxLength={200}
+                  required
+                  placeholder="Email, phone, or social handle"
+                />
+              </label>
+              <label>
+                Describe your idea
+                <textarea
+                  value={customIdea}
+                  onChange={(event) => setCustomIdea(event.target.value)}
+                  minLength={10}
+                  maxLength={3000}
+                  rows={5}
+                  required
+                  placeholder="What would you like us to print? Include details like its size, shape, colors, or how you’ll use it."
+                />
+                <span className="character-count">{customIdea.length}/3000</span>
+              </label>
+              {customRequestNotice && (
+                <p className="form-notice" role="alert">{customRequestNotice}</p>
+              )}
+              <button
+                className="button button-dark checkout-button"
+                type="submit"
+                disabled={customRequestSaving}
+              >
+                {customRequestSaving ? "Sending your idea..." : "Send custom request"}
+                {!customRequestSaving && <ArrowRight size={17} />}
+              </button>
+              <p className="privacy-note">
+                We’ll only use your contact details to reply about this idea.
+              </p>
+            </form>
+          </section>
+        </div>
+      )}
+
       {orderComplete && (
         <div className="overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) setOrderComplete(false); }}>
           <section className="success-panel" role="dialog" aria-modal="true" aria-labelledby="success-title">
@@ -714,6 +879,18 @@ function App() {
             <h2 id="success-title">You’re all checked out.</h2>
             <p>Stripe has returned you from checkout. We’re confirming the payment and order details now; the order will be marked paid only after Stripe confirms it.</p>
             <button className="button button-dark" type="button" onClick={() => setOrderComplete(false)}>Back to the good stuff <ArrowRight size={16} /></button>
+          </section>
+        </div>
+      )}
+
+      {customRequestComplete && (
+        <div className="overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) setCustomRequestComplete(false); }}>
+          <section className="success-panel" role="dialog" aria-modal="true" aria-labelledby="custom-success-title">
+            <span className="success-icon"><Check size={27} /></span>
+            <p className="section-eyebrow">Thanks for sharing</p>
+            <h2 id="custom-success-title">Your idea is with us.</h2>
+            <p>We’ve received your custom print request and will get in touch to talk through what’s possible.</p>
+            <button className="button button-dark" type="button" onClick={() => setCustomRequestComplete(false)}>Back to the shop <ArrowRight size={16} /></button>
           </section>
         </div>
       )}

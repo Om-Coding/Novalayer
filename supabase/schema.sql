@@ -36,6 +36,15 @@ create table if not exists public.orders (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.custom_requests (
+  id uuid primary key default gen_random_uuid(),
+  customer_name text not null check (char_length(btrim(customer_name)) between 1 and 100),
+  contact text not null check (char_length(btrim(contact)) between 2 and 200),
+  idea_description text not null check (char_length(btrim(idea_description)) between 10 and 3000),
+  status text not null default 'pending' check (status in ('pending', 'reviewed', 'declined')),
+  created_at timestamptz not null default now()
+);
+
 alter table public.products drop constraint if exists products_category_check;
 alter table public.products drop constraint if exists products_art_check;
 update public.products
@@ -72,6 +81,7 @@ create unique index if not exists orders_stripe_session_id_key
 
 alter table public.products enable row level security;
 alter table public.orders enable row level security;
+alter table public.custom_requests enable row level security;
 
 drop policy if exists "Anyone can view active products" on public.products;
 create policy "Anyone can view active products"
@@ -83,6 +93,8 @@ drop policy if exists "Guests can submit order requests" on public.orders;
 
 revoke all on table public.orders from public, anon, authenticated;
 grant all on table public.orders to service_role;
+revoke all on table public.custom_requests from public, anon, authenticated;
+grant all on table public.custom_requests to service_role;
 grant select on table public.products to anon;
 grant select, insert, update on table public.products to service_role;
 

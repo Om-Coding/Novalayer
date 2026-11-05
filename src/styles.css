@@ -1478,6 +1478,14 @@ textarea:focus-visible {
   color: #aaa399;
 }
 
+.checkout-form .character-count {
+  justify-self: end;
+  margin-top: -3px;
+  color: #9b948a;
+  font-size: 9px;
+  font-weight: 400;
+}
+
 .optional-label {
   margin-left: 4px;
   color: #a39b90;

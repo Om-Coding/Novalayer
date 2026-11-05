@@ -34,7 +34,7 @@ export function jsonResponse(
 
 export function originError(request: Request): Response | null {
   if (!isAllowedOrigin(request.headers.get("Origin"))) {
-    return jsonResponse(request, { error: "This website is not allowed to start checkout." }, 403);
+    return jsonResponse(request, { error: "This website is not allowed to send requests." }, 403);
   }
   return null;
 }

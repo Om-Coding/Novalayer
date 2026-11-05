@@ -33,9 +33,10 @@ The sample catalog works without Supabase. To load the live catalog and enable p
    ```sh
    supabase functions deploy create-checkout-session
    supabase functions deploy stripe-webhook
+   supabase functions deploy submit-custom-request
    ```
 
-   Both functions are intentionally configured for guest requests in `supabase/config.toml`; checkout validates product IDs and quantities and calculates prices from Supabase on the server.
+   The functions are intentionally configured for guest requests in `supabase/config.toml`. Checkout validates product IDs and quantities and calculates prices from Supabase on the server. Custom idea descriptions are saved to the private `custom_requests` table; guests cannot read or modify submitted requests.
 
 6. In Stripe **Developers → Webhooks**, add this endpoint:
 
