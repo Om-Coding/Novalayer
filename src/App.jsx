@@ -6,6 +6,9 @@ import {
   Check,
   ChevronDown,
   Cuboid,
+  Eye,
+  Globe,
+  Heart,
   Menu,
   Minus,
   PackageCheck,
@@ -17,6 +20,10 @@ import {
 } from "lucide-react";
 import { defaultProducts } from "./data/products.js";
 import { supabase } from "./lib/supabase.js";
+
+const TEAM_SITE_URL = "https://sites.google.com/view/ftc14481dontblink/home";
+const TEAM_DONATE_URL = "https://hcb.hackclub.com/donations/start/ftc-14481-don-t-blink";
+const SPONSOR_URL = "https://hackclub.com/";
 
 const categories = ["Everything", "Collectibles", "Accessories", "Home & desk", "Toys"];
 const supportedProductIds = new Set(defaultProducts.map((product) => product.id));
@@ -551,9 +558,9 @@ function App() {
   return (
     <div className="site-shell">
       <div className="announcement">
-        <Sparkles size={14} />
-        <span>Little 3D-printed things, starting at $3.</span>
-        <a href="#shop">Find a favorite <ArrowRight size={13} /></a>
+        <Eye size={14} />
+        <span>Every order supports FTC robotics team 14481 Don’t Blink.</span>
+        <a href="#team">Meet the team <ArrowRight size={13} /></a>
       </div>
 
       <header className="site-header">
@@ -566,6 +573,7 @@ function App() {
           <a href="#shop" onClick={() => { setCategory("Collectibles"); setMobileMenuOpen(false); }}>Collectibles</a>
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>Our little workshop</a>
           <a href="#custom" onClick={() => setMobileMenuOpen(false)}>Personalized gifts</a>
+          <a href="#team" onClick={() => setMobileMenuOpen(false)}>Our robotics team</a>
         </nav>
         <div className="header-actions">
           <button
@@ -706,6 +714,52 @@ function App() {
           <span className="custom-tag">YOUR IDEA, OUR PRINTER ✳</span>
         </section>
 
+        <section className="team-section" id="team" aria-labelledby="team-title">
+          <div className="team-inner">
+            <div className="team-copy">
+              <p className="team-eyebrow">Proudly made with FTC Team 14481</p>
+              <h2 id="team-title">Every print helps<br /><span>Don’t Blink</span> build robots.</h2>
+              <p>
+                Novalayer is run together with <strong>Don’t Blink</strong>, an independent,
+                student-led <strong>FIRST Tech Challenge (FTC)</strong> robotics team from New Jersey.
+                The team designs, builds, and codes competition robots, and teaches STEM to younger
+                students in the community. Don’t Blink has no school or parent organization paying
+                its bills, so the students raise the money themselves.
+              </p>
+              <div className="team-actions">
+                <a className="button button-team" href={TEAM_DONATE_URL} target="_blank" rel="noreferrer">
+                  <Heart size={16} /> Donate to Don’t Blink
+                </a>
+                <a className="button button-team-outline" href={TEAM_SITE_URL} target="_blank" rel="noreferrer">
+                  <Globe size={16} /> Visit the team website <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            <div className="team-side">
+              <div className="team-funds">
+                <h3>Where your money goes</h3>
+                <p>Money from every Novalayer order, and every donation, goes straight to Don’t Blink:</p>
+                <ul>
+                  <li><Check size={15} /> <span><strong>Competition registration</strong> for FTC events</span></li>
+                  <li><Check size={15} /> <span><strong>Robot parts and repairs</strong> to build each season’s robot</span></li>
+                  <li><Check size={15} /> <span><strong>Travel</strong> to qualifiers, State, and Worlds</span></li>
+                  <li><Check size={15} /> <span><strong>STEM outreach</strong> for younger students</span></li>
+                </ul>
+              </div>
+              <div className="team-sponsor">
+                <span className="team-sponsor-label">Our sponsor</span>
+                <a href={SPONSOR_URL} target="_blank" rel="noreferrer"><strong>Hack Club</strong> <ArrowUpRight size={13} /></a>
+                <small>
+                  Don’t Blink is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club),
+                  a 501(c)(3) nonprofit. Donations are processed securely through Hack Club’s HCB.
+                </small>
+              </div>
+            </div>
+          </div>
+          <span className="team-badge" aria-hidden="true"><Eye size={18} /> 14481 · DON’T BLINK</span>
+        </section>
+
         <section className="about-section section-wrap" id="about">
           <div className="about-title">
             <p className="section-eyebrow">A tiny bit about us</p>
@@ -730,7 +784,7 @@ function App() {
 
       <footer className="site-footer">
         <a className="brand footer-brand" href="#top"><span className="brand-icon"><Cuboid size={20} /></span><span>nova<span>layer</span></span></a>
-        <p>Made with curiosity, one layer at a time.</p>
+        <p>Made with curiosity, one layer at a time, for <a className="footer-team-link" href={TEAM_SITE_URL} target="_blank" rel="noreferrer">FTC Team 14481 Don’t Blink</a>.</p>
         <span className="footer-note">© {new Date().getFullYear()} Novalayer · Secure Stripe checkout · No account needed</span>
       </footer>
 

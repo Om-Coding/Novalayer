@@ -77,11 +77,11 @@ textarea:focus-visible {
   color: #fffaf4;
   font-size: 11px;
   letter-spacing: 0.015em;
-  background: #273f3b;
+  background: #0a0f31;
 }
 
 .announcement > svg {
-  color: #ffce75;
+  color: #c4cbe0;
 }
 
 .announcement a {
@@ -89,7 +89,9 @@ textarea:focus-visible {
   align-items: center;
   gap: 4px;
   margin-left: 8px;
-  color: #ffce75;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: 700;
 }
 
@@ -1104,6 +1106,198 @@ textarea:focus-visible {
   letter-spacing: 0.13em;
 }
 
+/* Don't Blink (FTC 14481) team colors: deep navy, white, steel silver */
+.team-section {
+  --db-navy: #0a0f31;
+  --db-navy-2: #151c4a;
+  --db-steel: #c4cbe0;
+  --db-white: #ffffff;
+  position: relative;
+  width: min(1120px, calc(100% - 64px));
+  margin: 72px auto 0;
+  padding: 56px 7% 64px;
+  overflow: hidden;
+  color: var(--db-white);
+  background:
+    radial-gradient(circle at 92% 8%, rgb(255 255 255 / 9%), transparent 38%),
+    linear-gradient(160deg, var(--db-navy-2), var(--db-navy) 60%);
+  border-radius: 20px;
+}
+
+.team-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: start;
+  gap: 48px;
+}
+
+.team-eyebrow {
+  margin: 0 0 12px;
+  color: var(--db-steel);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.team-copy h2 {
+  margin: 0 0 18px;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+}
+
+.team-copy h2 span {
+  padding: 0 6px;
+  color: var(--db-navy);
+  background: var(--db-white);
+  border-radius: 6px;
+}
+
+.team-copy > p {
+  max-width: 520px;
+  margin: 0 0 26px;
+  color: rgb(255 255 255 / 78%);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.team-copy strong {
+  color: var(--db-white);
+}
+
+.team-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button-team {
+  gap: 8px;
+  color: var(--db-navy);
+  background: var(--db-white);
+}
+
+.button-team:hover {
+  background: #e6eaf7;
+}
+
+.button-team-outline {
+  gap: 8px;
+  color: var(--db-white);
+  background: transparent;
+  border-color: rgb(255 255 255 / 35%);
+}
+
+.button-team-outline:hover {
+  border-color: var(--db-white);
+}
+
+.team-side {
+  display: grid;
+  gap: 14px;
+}
+
+.team-funds,
+.team-sponsor {
+  padding: 20px 20px 18px;
+  background: rgb(255 255 255 / 6%);
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 14px;
+}
+
+.team-funds h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+}
+
+.team-funds > p {
+  margin: 0 0 14px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.team-funds ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-funds li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: rgb(255 255 255 / 75%);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.team-funds li > svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--db-steel);
+}
+
+.team-funds li strong {
+  color: var(--db-white);
+}
+
+.team-sponsor {
+  display: grid;
+  gap: 6px;
+}
+
+.team-sponsor-label {
+  color: var(--db-steel);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.team-sponsor a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+}
+
+.team-sponsor a:hover {
+  text-decoration: underline;
+}
+
+.team-sponsor small {
+  color: rgb(255 255 255 / 62%);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.team-badge {
+  position: absolute;
+  right: 26px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgb(255 255 255 / 40%);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.footer-team-link {
+  color: #0a0f31;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .about-section {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -1855,6 +2049,30 @@ textarea:focus-visible {
     font-size: 7px;
   }
 
+  .team-section {
+    width: calc(100% - 40px);
+    margin-top: 48px;
+    padding: 34px 22px 52px;
+  }
+
+  .team-inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .team-copy h2 br {
+    display: none;
+  }
+
+  .team-actions .button {
+    width: 100%;
+  }
+
+  .team-badge {
+    right: 22px;
+    bottom: 16px;
+  }
+
   .about-section {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -1923,6 +2141,7 @@ textarea:focus-visible {
   .hero,
   .section-wrap,
   .custom-banner,
+  .team-section,
   .value-strip {
     width: calc(100% - 30px);
   }
